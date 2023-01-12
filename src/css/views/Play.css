@@ -1,0 +1,114 @@
+.board {
+  position: absolute;
+  margin-top: 10%;
+}
+
+.play-box {
+  width: 30vw;
+  position: absolute;
+  right: 5%;
+  top: 16%;
+  text-align: center;
+}
+
+.play-box .select {
+  list-style-type: none;
+  padding: 0;
+}
+
+.play-box .select li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.play-box .circle {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: 0.1s;
+}
+
+.circle.white {
+  border: 1px solid #000;
+}
+
+.circle.black {
+  background-color: #000;
+}
+
+.circle.any {
+  background: linear-gradient(90deg, #ffffff 50%, #000000 50%);
+  border: 1px solid #000000;
+  margin-right: 5px;
+}
+
+.circle.active {
+  border: 3px solid #6004ff;
+}
+
+.circle:hover {
+  border: 2px solid #9455ff;
+}
+
+.circle.active:hover {
+  border: 2px solid #000000;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 42vw;
+  left: 5%;
+  position: absolute;
+  left: 11%;
+}
+
+.player .name {
+  display: inline;
+}
+
+.clock-wrapper {
+  display: inline;
+  position: relative;
+  right: 0;
+}
+
+.player .clock {
+  display: inline-block;
+  width: 130px;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.clock.white {
+  border: 3px solid #000000;
+}
+
+.clock.black {
+  background-color: #000;
+  color: #fff;
+}
+
+.player.you {
+  bottom: 0;
+}
+
+.btn-block {
+  display: inline-block;
+  padding: 12px;
+  transition: 0.25s;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #6004ff;
+  font-family: "Nunito Sans";
+  margin-top: 23%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-block:hover {
+  background-color: #4000af;
+}

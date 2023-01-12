@@ -1,0 +1,13 @@
+# Links
+
+https://docs.google.com/drawings/d/1QGyV8qjTgxJw4IKvOdF50cBx28U5r5m5mA8uV7yk8ok/edit?usp=sharing
+
+# Notes
+
+For all collaborators,
+
+- Do not directly commit to the main branch of the repo; instead create a new branch, commit to that and then make a pull request. More on pull requests: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+
+- Please make an issue in the *Issues tab* of the repo if you encounter any issues, for discussion.
+
+

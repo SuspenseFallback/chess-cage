@@ -1,0 +1,61 @@
+div.main {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.main.fullscreen {
+  position: absolute;
+  top: 7vh;
+  left: 0;
+  height: 93vh;
+  width: 100vw;
+}
+
+div.p-card-title {
+  font-family: "Avenir";
+}
+
+.main > div {
+  margin-left: 1%;
+  right: 1%;
+  width: 83vw;
+}
+
+.main.fullscreen > div {
+  width: 100vw;
+}
+
+.main div .title {
+  font-family: "Avenir";
+  font-weight: bold;
+  text-align: center;
+}
+
+.main .home .grid .col .p-card .p-button.round {
+  border-radius: 50% !important;
+}
+
+.main .home .grid .col .p-card .p-button.p-button-info.p-button-outlined:hover {
+  background-color: var(--blue-100) !important;
+}
+
+.home .grid .col .p-card .subtitle {
+  font-family: Avenir;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.main
+  .home
+  .grid
+  .col
+  .p-card
+  .p-button.p-button-secondary.p-button-outlined:hover {
+  background-color: var(--gray-200) !important;
+}
+
+.p-button:focus,
+.p-button:active {
+  outline: none;
+}

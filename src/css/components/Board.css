@@ -1,0 +1,14 @@
+.board {
+  margin-top: 5.7%;
+}
+
+.board > div > div > div {
+  width: 100px !important;
+}
+
+.game .board,
+.puzzle-wrapper .board,
+.editor .board {
+  margin-top: 8%;
+  margin-left: 3%;
+}

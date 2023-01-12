@@ -1,0 +1,13 @@
+.not-found-wrapper h1 {
+  font-size: 3rem;
+  font-family: "Avenir";
+  text-align: left;
+  margin-left: 5vw;
+  margin-top: 15vh;
+}
+
+.not-found-wrapper .button {
+  text-align: left;
+  background-color: transparent;
+  margin-left: 5vw;
+}

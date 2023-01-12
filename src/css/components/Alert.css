@@ -1,0 +1,136 @@
+.alert {
+  z-index: 2;
+  position: absolute;
+  top: 2%;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  width: 95%;
+  margin-left: 1%;
+  overflow: visible;
+  animation-name: appear;
+  animation-duration: 10s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.alert.show {
+  display: block;
+}
+
+.alert.hide {
+  display: none;
+}
+
+.alert .alert-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.alert .alert-content .alert-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #fff;
+}
+
+.alert .alert-content .alert-text {
+  font-size: 1.25rem;
+  font-family: "Avenir";
+  position: absolute;
+  right: 0;
+  left: 0;
+  color: #fff;
+}
+
+.alert .alert-content .alert-text p {
+  margin: 0;
+}
+
+.alert .alert-content .alert-text p strong {
+  font-weight: bold;
+}
+
+.alert .alert-content .alert-text p span {
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.alert.danger {
+  background-color: #ff0000;
+}
+
+.alert.warning {
+  background-color: #ffbb00;
+}
+
+.alert.success {
+  background-color: #44d401;
+}
+
+.alert.info {
+  background-color: #add1ff;
+}
+
+.alert.critical {
+  background-color: #a305ff;
+  padding: 1.25rem 1.25rem;
+  animation: appear_critical;
+  animation-duration: 20s;
+  top: -10%;
+}
+
+.alert.critical .alert-content .alert-text {
+  font-size: 1.5rem;
+}
+
+.alert.critical .alert-content .alert-text p span {
+  font-size: 1.5rem;
+}
+
+@keyframes appear {
+  0% {
+    top: -8%;
+  }
+  10% {
+    top: 2%;
+  }
+  90% {
+    top: 2%;
+  }
+  100% {
+    top: -8%;
+  }
+}
+
+@keyframes appear_critical {
+  0% {
+    top: -10%;
+  }
+  10% {
+    top: 2%;
+    background-color: #a305ff;
+  }
+  30% {
+    top: 2%;
+    background-color: #ff0000;
+  }
+  50% {
+    top: 2%;
+    background-color: #a305ff;
+  }
+  70% {
+    top: 2%;
+    background-color: #ff0000;
+  }
+  90% {
+    top: 2%;
+    background-color: #a305ff;
+  }
+  100% {
+    top: -10%;
+  }
+}
