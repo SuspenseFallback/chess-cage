@@ -1,12 +1,32 @@
 .input {
-  background-color: transparent;
-  margin-top: 5%;
-  width: 155%;
-  margin-left: 12%;
-  border: 1px solid #aaa;
   padding: 12px;
+  font-family: "Nunito Sans";
+  font-size: 16px;
   border-radius: 0 5px 5px 0;
-  font-family: Avenir;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.inp-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container {
+  padding: 16px;
+  width: 12%;
+  border-radius: 5px 0 0 5px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: white;
 }
 
 .input:focus {

@@ -1,13 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import register from "./registerServiceWorker";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
+import "./css/components/Button.css";
+import "./css/components/Text.css";
+
+import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom";
+import register from "./registerServiceWorker";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

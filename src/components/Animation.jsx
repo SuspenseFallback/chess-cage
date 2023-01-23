@@ -1,7 +1,8 @@
 import * as Chess from "chess.js";
 
+import React, { useEffect } from "react";
+
 import Board from "./Board";
-import React from "react";
 
 const Animation = () => {
   const [game, set_game] = React.useState(new Chess());
@@ -218,7 +219,7 @@ const Animation = () => {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     set_position(game.fen());
     setTimeout(makeMove, 500);
   }, []);

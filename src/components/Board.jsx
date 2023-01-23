@@ -24,6 +24,7 @@ const Board = ({
     ["rgba(255, 255, 0, 0.6)", "rgba(200, 200, 0, 0.6)"],
     ["rgba(255, 180, 138, 0.6)", "rgba(255, 150, 138, 0.6)"],
   ],
+  highlightedSquares,
   onDrop = () => {},
   game,
   highlight = true,
@@ -42,7 +43,7 @@ const Board = ({
     let newKeys = { ...keys };
     document.querySelector(".board > div").addEventListener(
       "keydown",
-      function(e) {
+      function (e) {
         for (var key in keys) {
           if (keys.hasOwnProperty(key)) {
             newKeys[key] = e[key];
@@ -55,7 +56,7 @@ const Board = ({
 
     document
       .querySelector(".board > div")
-      .addEventListener("keyup", function(e) {
+      .addEventListener("keyup", function (e) {
         for (var key in keys) {
           if (keys.hasOwnProperty(key)) {
             newKeys[key] = e[key];
@@ -66,9 +67,11 @@ const Board = ({
   }, [keys]);
 
   useEffect(() => {
-    window.onresize = () => {
-      set_width(window.innerWidth / 2.4);
-    };
+    if (highlightedSquares) {
+      highlightedSquares.forEach((square) => {
+        highlight_square(square);
+      });
+    }
   }, []);
 
   const element_highlight = (square, idx) => {
@@ -158,7 +161,6 @@ const Board = ({
       <Chessboard
         position={position}
         arePiecesDraggable={isInteractive}
-        boardWidth={width}
         onPieceDrop={dropPiece}
         onSquareRightClick={highlight_square}
         onSquareClick={(square) => onSquareClick(square)}
@@ -166,6 +168,7 @@ const Board = ({
         customLightSquareStyle={lightSquareStyle}
         customDarkSquareStyle={darkSquareStyle}
         boardOrientation={color === "w" ? "white" : "black"}
+        showBoardNotation={false}
       />
     </div>
   );

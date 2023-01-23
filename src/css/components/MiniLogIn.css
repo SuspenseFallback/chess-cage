@@ -1,0 +1,16 @@
+.inputs {
+  background-color: rgba(234, 210, 255, 0.74);
+  width: 30vw;
+  text-align: center;
+  height: 60vh;
+  transform: rotateX(10deg) rotateY(-10deg);
+  margin-left: 5%;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-block {
+  width: 100%;
+}

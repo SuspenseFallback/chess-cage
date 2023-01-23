@@ -716,7 +716,7 @@ const Play = () => {
       </Dialog>
       <Toast ref={toast} />
       <div className="game">
-        <div className="board">
+        <div className="game-board-container">
           <Board
             color={backup_data ? backup_data.color : "w"}
             isInteractive={start && !game_end}

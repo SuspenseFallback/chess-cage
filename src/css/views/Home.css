@@ -1,30 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap");
-
 .page-1 {
   width: 100vw;
   height: 92vh;
+  margin-top: 8vh;
+  display: flex;
+  align-items: center;
 }
 
-.page-2 {
+.page-2,
+.page-3 {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
 }
 
 .title-container {
   margin-left: 5%;
-  margin-top: 15%;
 }
 
 .title-container .title {
   text-align: left;
   font-family: "Nunito Sans";
-  font-size: 2.5rem;
+  font-size: 3vw;
   margin: 0;
   padding: 0;
-}
-
-.emp {
-  color: rgb(135, 43, 255);
 }
 
 .title-container .subtitle {
@@ -35,7 +32,7 @@
 
 .btn {
   padding: 12px;
-  background-color: #6004ff;
+  background-color: var(--primary-color);
   border-radius: 5px;
   border: none;
   color: #fff;
@@ -52,13 +49,18 @@
 }
 
 .btn:hover {
-  background-color: #4000af;
+  background-color: var(--primary-color-hover);
 }
 
-.board-container {
+.page-1 .board-container {
   position: absolute;
-  right: 50%;
-  top: 16%;
+  right: 80%;
+  top: 16vh;
+}
+
+.board-container .board {
+  margin-top: 20%;
+  box-sizing: border-box;
 }
 
 .left-side,
@@ -75,4 +77,61 @@
 .right-side {
   text-align: right;
   padding-right: 100px;
+}
+/* 
+@media screen and (max-width: 999px) {
+  .page-1 {
+    width: 100vw;
+    height: 92vh;
+    margin-top: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .title-container .title {
+    text-align: left;
+    font-family: "Nunito Sans";
+    font-size: 3vw;
+    margin-top: 10%;
+    padding: 0;
+  }
+
+  .board-container {
+    position: absolute;
+    left: 50%;
+    top: 30vh;
+  }
+} */
+
+.box-left {
+  width: 50%;
+  clip-path: polygon(0 0, calc(100% - 10vh) 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, calc(100% - 10vh) 0, 100% 100%, 0 100%);
+  margin-right: -4.2vh;
+  padding: 5px 11vh 5px 5px;
+  text-align: center;
+}
+
+.box-right {
+  width: 55%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, calc(0% + 10vh) 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, calc(0% + 10vh) 100%);
+  padding: 5px 5px 5px 11vh;
+  background: linear-gradient(
+    180deg,
+    #44325a,
+    90%,
+    #875dba,
+    95%,
+    hsl(267, 100%, 85%),
+    #ffffff
+  );
+  position: relative;
+  right: 0;
+}
+
+.cards {
+  margin-top: 5%;
 }

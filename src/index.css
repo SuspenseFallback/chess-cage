@@ -1,13 +1,23 @@
+:root {
+  --primary-color-tint: #cbadff;
+  --primary-color: #6004ff;
+  --primary-color-hover: #4000af;
+  --primary-color-shade: #44325a;
+  --secondary-color-tint: #ffcda6;
+  --secondary-color: #ff7104;
+  --secondary-color-hover: #c35500;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {
-  font-family: 'Avenir';
-  src: url('./assets/avenir_ff/AvenirLTStd-Book.otf')  format('truetype');
+  font-family: "Avenir";
+  src: url("./assets/avenir_ff/AvenirLTStd-Book.otf") format("truetype");
 }

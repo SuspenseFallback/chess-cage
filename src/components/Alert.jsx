@@ -16,7 +16,7 @@ const Alert = ({ type, onClose, title, message }) => {
   const [show, setShow] = React.useState("show");
   const [icon, setIcon] = React.useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let iconF;
     switch (type) {
       case "success":

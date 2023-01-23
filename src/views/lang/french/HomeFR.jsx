@@ -1,18 +1,20 @@
-import React from "react";
 import "../../../css/views/Home.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
+  faBullseye,
+  faPuzzlePiece,
   faTrain,
   faWalking,
-  faPuzzlePiece,
-  faBullseye,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const HomeFR = () => {
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.title = "Home | The Chess Verse";
   }, []);
 

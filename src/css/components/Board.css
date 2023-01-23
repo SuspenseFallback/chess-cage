@@ -1,9 +1,36 @@
 .board {
-  margin-top: 5.7%;
+  align-self: center;
+  width: 20vw;
 }
 
 .board > div > div > div {
-  width: 100px !important;
+  width: 40vw !important;
+  height: 40vw !important;
+}
+
+.board > div > div > div > div {
+  width: 100% !important;
+  height: 12.5% !important;
+}
+
+.board > div > div > div > div > div {
+  width: 12.5% !important;
+  height: 100% !important;
+}
+
+.board > div > div > div > div > div > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.board > div > div > div > div > div > div > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.board > div > div > div > div > div > div > div > svg {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .game .board,

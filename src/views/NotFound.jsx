@@ -2,6 +2,7 @@ import "../css/views/NotFound.css";
 
 import React, { useEffect } from "react";
 
+import Animation from "../components/Animation";
 import { Button } from "primereact/button";
 
 const NotFound = () => {
@@ -18,6 +19,9 @@ const NotFound = () => {
           className="p-button-primary p-button-outlined p-button-raised"
           onClick={() => window.location.replace("http://localhost:3000/")}
         />
+      </div>
+      <div className="board-container">
+        <Animation />
       </div>
     </main>
   );
