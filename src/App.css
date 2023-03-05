@@ -2,3 +2,9 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+
+.page-wrapper {
+  margin-top: 8vh;
+  height: 92vh;
+  width: 100vw;
+}

@@ -4,6 +4,7 @@
   margin-top: 8vh;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .page-2,
@@ -78,31 +79,10 @@
   text-align: right;
   padding-right: 100px;
 }
-/* 
-@media screen and (max-width: 999px) {
-  .page-1 {
-    width: 100vw;
-    height: 92vh;
-    margin-top: 8vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
 
-  .title-container .title {
-    text-align: left;
-    font-family: "Nunito Sans";
-    font-size: 3vw;
-    margin-top: 10%;
-    padding: 0;
-  }
-
-  .board-container {
-    position: absolute;
-    left: 50%;
-    top: 30vh;
-  }
-} */
+.scroll-down {
+  display: none;
+}
 
 .box-left {
   width: 50%;
@@ -134,4 +114,64 @@
 
 .cards {
   margin-top: 5%;
+}
+
+@media screen and (max-width: 1153px) {
+  .box-right {
+    display: none;
+  }
+
+  .box-left {
+    width: 100%;
+  }
+
+  .page-1 {
+    width: 100vw;
+    height: 92vh;
+    margin-top: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-container .title {
+    text-align: left;
+    font-family: "Nunito Sans";
+    font-size: 6vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-container .subtitle {
+    color: rgb(132, 132, 132);
+    font-family: "Nunito Sans";
+    text-align: center;
+    font-size: 1.5vw;
+  }
+
+  .scroll-down {
+    display: inline-block;
+    text-align: center;
+    font-size: 3vw;
+    margin-top: 40%;
+    color: rgb(67, 67, 67);
+    animation: up-and-down 1s linear infinite;
+  }
+}
+
+@keyframes up-and-down {
+  0% {
+    margin-top: 40%;
+    color: rgb(67, 67, 67);
+  }
+
+  50% {
+    margin-top: 40.5%;
+    color: rgb(109, 108, 108);
+  }
+
+  100% {
+    margin-top: 40%;
+    color: rgb(67, 67, 67);
+  }
 }

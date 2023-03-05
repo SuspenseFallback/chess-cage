@@ -69,9 +69,7 @@ const PuzzleTrainer = () => {
       document.querySelector(
         '[data-square="' + targetSquare + '"]'
       ).style.backgroundColor =
-        game.square_color(targetSquare) === "light"
-          ? "rgb(240, 217, 181)"
-          : "rgb(181, 136, 99)";
+        game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
       setTimeout(() => {
         document.querySelector(
           '[data-square="' + targetSquare + '"]'
@@ -83,9 +81,7 @@ const PuzzleTrainer = () => {
           document.querySelector(
             '[data-square="' + targetSquare + '"]'
           ).style.backgroundColor =
-            game.square_color(targetSquare) === "light"
-              ? "rgb(240, 217, 181)"
-              : "rgb(181, 136, 99)";
+            game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
           setTimeout(() => {
             document.querySelector(
               '[data-square="' + targetSquare + '"]'
@@ -98,8 +94,8 @@ const PuzzleTrainer = () => {
                 '[data-square="' + targetSquare + '"]'
               ).style.backgroundColor =
                 game.square_color(targetSquare) === "light"
-                  ? "rgb(240, 217, 181)"
-                  : "rgb(181, 136, 99)";
+                  ? "#ab7aff"
+                  : "#9354ff";
             }, 100);
           }, 100);
         }, 100);
@@ -116,9 +112,7 @@ const PuzzleTrainer = () => {
       document.querySelector(
         '[data-square="' + targetSquare + '"]'
       ).style.backgroundColor =
-        game.square_color(targetSquare) === "light"
-          ? "rgb(240, 217, 181)"
-          : "rgb(181, 136, 99)";
+        game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
       setTimeout(() => {
         document.querySelector(
           '[data-square="' + targetSquare + '"]'
@@ -128,23 +122,7 @@ const PuzzleTrainer = () => {
           document.querySelector(
             '[data-square="' + targetSquare + '"]'
           ).style.backgroundColor =
-            game.square_color(targetSquare) === "light"
-              ? "rgb(240, 217, 181)"
-              : "rgb(181, 136, 99)";
-          setTimeout(() => {
-            document.querySelector(
-              '[data-square="' + targetSquare + '"]'
-            ).style.backgroundColor =
-              game.square_color(targetSquare) === "light" ? "salmon" : "red";
-            setTimeout(() => {
-              document.querySelector(
-                '[data-square="' + targetSquare + '"]'
-              ).style.backgroundColor =
-                game.square_color(targetSquare) === "light"
-                  ? "rgb(240, 217, 181)"
-                  : "rgb(181, 136, 99)";
-            }, 100);
-          }, 100);
+            game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
         }, 100);
       }, 100);
     }, 100);
@@ -205,20 +183,26 @@ const PuzzleTrainer = () => {
   const retry = () => {
     set_wrong(false);
     set_puzzle_end(false);
+
+    // format puzzle moves
     const formattedMoves = [];
     puzzle.moves.split(" ").forEach((move) => {
       formattedMoves.push(fromStringToArray(move));
     });
+
     set_solution(formattedMoves);
     set_start(true);
     set_puzzle_end(false);
+
+    // Load position
     set_position(puzzle.fen);
     game.load(puzzle.fen);
     set_color(puzzle.fen.split(" ")[1] === "w" ? "b" : "w");
   };
 
   return (
-    <div>
+    <div className="page-wrapper">
+      {/* The board */}
       <div className="puzzle-wrapper">
         <Board
           color={color}
@@ -228,19 +212,22 @@ const PuzzleTrainer = () => {
           game={game}
         />
       </div>
-      <PuzzleTrainerPanel
-        getNewPuzzle={getPuzzle}
-        rating_min_max={rating_min_max}
-        set_rating_min_max={set_rating_min_max}
-        stop_after_puzzle={stop_after_puzzle}
-        set_stop_after_puzzle={set_stop_after_puzzle}
-        puzzle_end={puzzle_end}
-        theme={theme}
-        set_theme={set_theme}
-        wrong={wrong}
-        start={start}
-        retry={retry}
-      />
+      {/* The panel on the right side of the screen*/}
+      <div className="puzzle-box-wrapper">
+        <PuzzleTrainerPanel
+          getNewPuzzle={getPuzzle}
+          rating_min_max={rating_min_max}
+          set_rating_min_max={set_rating_min_max}
+          stop_after_puzzle={stop_after_puzzle}
+          set_stop_after_puzzle={set_stop_after_puzzle}
+          puzzle_end={puzzle_end}
+          theme={theme}
+          set_theme={set_theme}
+          wrong={wrong}
+          start={start}
+          retry={retry}
+        />
+      </div>
     </div>
   );
 };

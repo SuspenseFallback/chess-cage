@@ -1,0 +1,19 @@
+div.main {
+  width: 100vw;
+  height: 92vh;
+  margin-top: 8vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+div.main h1.header {
+  font-size: 3rem;
+  width: 80vw;
+}
+
+div.main p.subheader {
+  font-size: 1rem;
+}

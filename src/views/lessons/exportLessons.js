@@ -4,7 +4,7 @@ import React from "react";
 const ThePawn = () => {
   const fens = [
     "8/8/8/8/4P3/8/8/8 w - - 0 1",
-    "8/4p3/8/8/8/8/4P3/8 w - - 0 1",
+    "8/pppppppp/8/8/8/8/PPPPPPPP/8 w - - 0 1",
     "8/4p3/8/8/8/8/4P3/8 w - - 0 1",
     "8/8/8/4p3/3P4/8/8/8 w - - 0 1",
     "8/8/8/2p5/3P4/8/8/8 w - - 0 1",
@@ -29,7 +29,7 @@ const ThePawn = () => {
     "The pawn is the weakest piece in chess. It can only move one square forward, as shown on the board.",
     "The pawns' home square are on the second row of the board, or the seventh row.",
     "The Pawn, when on the home row, can move two squares forward. This is one of their special movements.",
-    "The Pawn do not control the squares they are on or move to. They only control the squares diagonal one square forward from them. <br/> For example, these pawns can capture each other.",
+    "The Pawn do not control the squares they are on or move to. They only control the squares diagonal one square forward from them. \nFor example, these pawns can capture each other.",
     "These pawns can also capture each other.",
     "The Pawn cannot move through other pawns or pieces.",
     "Now, these two pawns are on the board and it is Black to move.",
@@ -49,7 +49,16 @@ const ThePawn = () => {
     "Congratulations! You finished the lesson.",
   ];
 
-  return <Lesson fens={fens} lessons={lessons} />;
+  const highlights = [[], [], ["e3", "e4"]];
+
+  return (
+    <Lesson
+      fens={fens}
+      lessons={lessons}
+      highlights={highlights}
+      title="The Pawn"
+    />
+  );
 };
 
 const TheKnight = () => {
@@ -69,8 +78,16 @@ const TheKnight = () => {
     "Knights are very useful for beginners, as their movements are unpredictable and easy to forget in your calculations.",
     "Congratulations! You completed the lesson.",
   ];
+  const highlights = [];
 
-  return <Lesson fens={fens} lessons={lessons} />;
+  return (
+    <Lesson
+      fens={fens}
+      lessons={lessons}
+      highlights={highlights}
+      title="The Knight"
+    />
+  );
 };
 
 const TheBishop = () => {
@@ -90,8 +107,16 @@ const TheBishop = () => {
     "The Bishop normally control the center, so bishops are normally put near the center.",
     "Congratulations! You finished the lesson.",
   ];
+  const highlights = [];
 
-  return <Lesson fens={fens} lessons={lessons} />;
+  return (
+    <Lesson
+      fens={fens}
+      lessons={lessons}
+      highlights={highlights}
+      title="The Bishop"
+    />
+  );
 };
 
 const TheRook = () => {
@@ -111,8 +136,16 @@ const TheRook = () => {
     "Rooks love open files (columns with no pawns on them), as they can control the entire file.",
     "Congratulations! You completed the lesson.",
   ];
+  const highlights = [];
 
-  return <Lesson fens={fens} lessons={lessons} />;
+  return (
+    <Lesson
+      fens={fens}
+      lessons={lessons}
+      highlights={highlights}
+      title="The Rook"
+    />
+  );
 };
 
 const TheQueen = () => {
@@ -134,8 +167,16 @@ const TheQueen = () => {
     "Queens, though powerful, are equal to (or sometimes even worse than) a rook and bishop.",
     "Congratulations! You completed the lesson.",
   ];
+  const highlights = [];
 
-  return <Lesson fens={fens} lessons={lessons} />;
+  return (
+    <Lesson
+      fens={fens}
+      lessons={lessons}
+      highlights={highlights}
+      title="The Queen"
+    />
+  );
 };
 
 const TheKing = () => {
@@ -171,8 +212,16 @@ const TheKing = () => {
     "Castling is done to keep the king safe, one of the most important things in chess.",
     "Congratulations! You completed the lesson.",
   ];
+  const highlights = [];
 
-  return <Lesson fens={fens} lessons={lessons} />;
+  return (
+    <Lesson
+      fens={fens}
+      lessons={lessons}
+      highlights={highlights}
+      title="The King"
+    />
+  );
 };
 
 export { ThePawn, TheKnight, TheBishop, TheRook, TheQueen, TheKing };

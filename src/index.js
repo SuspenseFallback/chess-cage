@@ -5,6 +5,7 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "./css/components/Button.css";
 import "./css/components/Text.css";
+import "./css/components/Flex.css";
 
 import App from "./App";
 import React from "react";

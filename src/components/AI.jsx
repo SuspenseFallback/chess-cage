@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 import Board from "./Board";
 
-const Animation = () => {
+const AI = () => {
   const [game, set_game] = React.useState(new Chess());
   const [position, set_position] = React.useState("start");
   const [king_moving, set_king_moving] = React.useState(false);
@@ -222,4 +222,4 @@ const Animation = () => {
   );
 };
 
-export default Animation;
+export default AI;

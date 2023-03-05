@@ -28,8 +28,6 @@ const Board = ({
   onDrop = () => {},
   game,
   highlight = true,
-  arrows = true,
-  premoves = true,
 }) => {
   const [keys, set_keys] = useState({
     altKey: false,
@@ -37,7 +35,6 @@ const Board = ({
     shiftKey: false,
   });
   const [piece_square, set_piece_square] = useState("");
-  const [width, set_width] = useState(window.innerWidth / 2.4);
 
   useEffect(() => {
     let newKeys = { ...keys };
@@ -67,12 +64,14 @@ const Board = ({
   }, [keys]);
 
   useEffect(() => {
+    clearSquares();
+
     if (highlightedSquares) {
       highlightedSquares.forEach((square) => {
         highlight_square(square);
       });
     }
-  }, []);
+  }, [highlightedSquares]);
 
   const element_highlight = (square, idx) => {
     const index = lightOrDark(squareToNum(square)) === "light" ? 0 : 1;
@@ -107,7 +106,9 @@ const Board = ({
   const onSquareClick = (square) => {
     clearSquares();
     if (isInteractive) {
-      if (game.get(square) && !piece_square) {
+      if (game.get(square) == piece_square) {
+        set_piece_square("");
+      } else if (game.get(square) && !piece_square) {
         set_piece_square(square);
         document.querySelector(
           '[data-square="' + square + '"]'
@@ -164,7 +165,7 @@ const Board = ({
         onPieceDrop={dropPiece}
         onSquareRightClick={highlight_square}
         onSquareClick={(square) => onSquareClick(square)}
-        areAllowsAllowed={arrows}
+        areArrowsAllowed={false}
         customLightSquareStyle={lightSquareStyle}
         customDarkSquareStyle={darkSquareStyle}
         boardOrientation={color === "w" ? "white" : "black"}

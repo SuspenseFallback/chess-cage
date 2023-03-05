@@ -1,64 +1,54 @@
+.page-wrapper {
+  display: grid;
+}
+
+.puzzle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.puzzle-box-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  height: 100vh;
+}
+
 .puzzle-box {
-  position: absolute;
-  right: 2%;
-  top: 3%;
-  height: 87%;
-  max-height: 87%;
-  border-radius: 10px;
+  position: relative;
   width: 26vw;
-  max-width: 26vw;
+  height: 65vh;
 }
 
-.puzzle-box .title {
-  color: white;
-  text-align: center;
-  font-family: "Avenir";
-  font-size: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: -2%;
-  border-radius: 10px;
-}
-
-.puzzle-box .text {
-  padding: 20px;
-  font-family: "Avenir";
-  font-size: 18px;
-  display: inline-block;
+div.user {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
 }
 
 .puzzle-box .subtitle {
   text-align: center;
-  font-family: "Avenir";
-  font-size: 16px;
-  font-weight: 500;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 2%;
-  border-radius: 10px;
+  margin-bottom: 8px;
+  margin-top: 0;
 }
 
-.p-button-rounded {
-  width: 50px;
-  border-radius: 50%;
-}
-
-.p-button-rounded span {
+.username {
+  font-size: 20px;
   font-family: Avenir;
-  font-size: 14px;
-  text-align: center;
+  font-weight: bold;
+  margin-left: 2%;
 }
 
-.select-button {
-  width: 80%;
-}
-
-.puzzle-box .subtitle span {
-  font-weight: normal;
-}
-
-.switch-group {
-  height: 100px;
-  line-height: 100px;
-  text-align: center;
+.rating-text {
+  position: absolute;
+  right: 0;
+  font-size: 16px;
+  font-family: Avenir;
+  font-weight: 500;
+  margin-top: 5%;
 }

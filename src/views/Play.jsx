@@ -26,7 +26,7 @@ import { v4 as uuidv4 } from "uuid";
 
 let backup_data = false;
 
-const socket = io("http://localhost:8000");
+const socket = io("http://192.168.1.8:8000");
 
 const Play = () => {
   const user = UseAuth();

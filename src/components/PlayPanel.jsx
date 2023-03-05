@@ -373,12 +373,12 @@ const PlayPanel = ({
                 ></div>
               </li>
             </ul>
-            <btn
+            <button
               className="btn-block"
               onClick={() => startGame(mode.toLowerCase())}
             >
               Play
-            </btn>
+            </button>
           </div>
         )}
       </TabPanel>

@@ -22,7 +22,7 @@ import { useEffect, useState } from "react";
 
 import { initializeApp } from "firebase/app";
 import { throw_err } from "../helpers/throw_err.js";
-import user_schema from "../schema/User.js";
+// import user_schema from "../schema/User.js";
 import { v4 as uuidv4 } from "uuid";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -48,23 +48,23 @@ const firestore = getFirestore();
 const storage = getStorage();
 console.log(firestore);
 
-export const signup = (fname, lname, username, email, password, callback) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((user) => {
-      logEvent(analytics, "sign_up", {
-        id: user.user.uid,
-      });
-      setDoc(
-        doc(firestore, "users", `${user.user.uid}`),
-        user_schema(fname, lname, username, email, user.user.uid)
-      ).then(() => {
-        callback();
-      });
-    })
-    .catch((err) => {
-      throw err;
-    });
-};
+// export const signup = (fname, lname, username, email, password, callback) => {
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then((user) => {
+//       logEvent(analytics, "sign_up", {
+//         id: user.user.uid,
+//       });
+//       setDoc(
+//         doc(firestore, "users", `${user.user.uid}`),
+//         user_schema(fname, lname, username, email, user.user.uid)
+//       ).then(() => {
+//         callback();
+//       });
+//     })
+//     .catch((err) => {
+//       throw err;
+//     });
+// };
 
 export function UseAuth() {
   const [current_user, set_current_user] = useState(null);

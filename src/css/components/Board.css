@@ -1,11 +1,21 @@
 .board {
   align-self: center;
-  width: 20vw;
+  width: 21vw;
+}
+
+.page-1 .board {
+  width: 19vw !important;
+  height: 19vw !important;
+}
+
+.page-1 .board > div > div > div {
+  width: 38vw !important;
+  height: 38vw !important;
 }
 
 .board > div > div > div {
-  width: 40vw !important;
-  height: 40vw !important;
+  width: 42vw !important;
+  height: 42vw !important;
 }
 
 .board > div > div > div > div {

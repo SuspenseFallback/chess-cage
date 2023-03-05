@@ -1,8 +1,9 @@
-import React from "react";
+import { TabPanel, TabView } from "primereact/tabview";
+
 import { Button } from "primereact/button";
-import { TabView, TabPanel } from "primereact/tabview";
 import { InputSwitch } from "primereact/inputswitch";
 import PuzzleRunnerBar from "./PuzzleRunnerBar";
+import React from "react";
 
 const PuzzleRunnerPanel = ({
   getNewPuzzle,
@@ -24,7 +25,7 @@ const PuzzleRunnerPanel = ({
       onTabChange={(e) => set_active_index(e.index)}
       className="puzzle-box"
     >
-      <TabPanel header="RUNNNER">
+      <TabPanel header="RUNNER">
         <div className="user flex flex-row justify-content-between">
           <div>
             <i

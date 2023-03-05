@@ -3,14 +3,24 @@ import "../css/views/Home.css";
 import React, { useEffect } from "react";
 
 import Animation from "../components/Animation";
-import MiniLogIn from "../components/MiniLogIn";
+import { getSession } from "../supabase/supabase";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Home | The Chess Verse";
+    document.title = "Home";
+  }, []);
+
+  useEffect(() => {
+    getSession((data, err) => {
+      if (err) console.error(err);
+
+      if (data.session) {
+        navigate("/dashboard");
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -30,9 +40,15 @@ const Home = () => {
             </h1>
             <p className="subtitle">Sign up to play your first game.</p>
             <div className="btn-container">
-              <button className="btn">Sign up</button>
-              <button className="btn">Log in</button>
+              <button className="btn" onClick={() => navigate("/signup")}>
+                Sign up
+              </button>
+              <button className="btn" onClick={() => navigate("/login")}>
+                Log in
+              </button>
+              <br />
             </div>
+            <i className="pi pi-angle-down scroll-down"></i>
           </div>
         </div>
         <div className="box-right">

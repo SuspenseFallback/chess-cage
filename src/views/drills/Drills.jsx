@@ -53,15 +53,15 @@ const ThePawnDrills = () => {
           selectedSquares={highlight[index]}
         />
       </div>
-      <div class="drills-box">
+      <div className="drills-box">
         <h3 className="title">Pawns</h3>
         <p className="text">
           <span>Objective: </span>
           {objectives[index]}
         </p>
-        <button class="hint">Hint</button>
+        <button className="hint">Hint</button>
         <button
-          class="prev btn"
+          className="prev btn"
           onClick={previous_drill}
           disabled={index === 0}
         >

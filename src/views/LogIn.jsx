@@ -6,34 +6,32 @@ import Input from "../components/Input";
 import { Link } from "react-router-dom";
 import Password from "../components/Password.jsx";
 import React from "react";
-import { login } from "../firebase/firebase";
 import { signInWithEmail } from "../supabase/supabase";
 
 const LogIn = () => {
   const [email, set_email] = React.useState("");
   const [password, set_password] = React.useState("");
-  const [remember, set_remember] = React.useState("");
   const [err_msg, set_err_msg] = React.useState("");
 
   let login_handler = () => {
-    login(email, password, (err) => {
+    signInWithEmail(email, password, (data, err) => {
       if (err) {
         set_err_msg("Invalid email or password.");
       }
-      console.log("login success");
+      console.log("login success", data);
     });
   };
 
   return (
-    <div className="body">
-      <div className="container">
+    <div className="body flex justify-center align-center">
+      <div className="container flex flex-row">
         <div className="image">
           <p className="subtitle">Welcome back!</p>
           <div className="board-container-login">
             <Animation />
           </div>
         </div>
-        <div className="form">
+        <div className="form flex flex-column">
           <h2 className="header-2">Log in</h2>
           <p>
             Don't have an account?{" "}

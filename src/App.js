@@ -11,6 +11,7 @@ import {
 } from "./views/lessons/exportLessons";
 
 import BoardEditor from "./views/BoardEditor";
+import Dashboard from "./views/Dashboard";
 import Home from "./views/Home";
 import LogIn from "./views/LogIn";
 import Material from "./views/lessons/Material";
@@ -24,6 +25,7 @@ import React from "react";
 import SignUp from "./views/SignUp";
 import Stalemate from "./views/lessons/Stalemate";
 import ThePawnDrills from "./views/drills/Drills";
+import Verify from "./views/Verify";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
+          <Route path="verify" element={<Verify />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<LogIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="play">

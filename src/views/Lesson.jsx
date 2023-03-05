@@ -3,7 +3,7 @@ import "../css/views/Lessons.css";
 import Board from "../components/Board";
 import React from "react";
 
-const Lesson = ({ fens, lessons, highlights }) => {
+const Lesson = ({ fens, lessons, highlights, title }) => {
   const [index, set_index] = React.useState(0);
 
   const nextPage = () => {
@@ -21,21 +21,21 @@ const Lesson = ({ fens, lessons, highlights }) => {
           color="w"
           position={fens[index]}
           isInteractive={false}
-          highlightSquares={highlights}
+          highlightedSquares={highlights[index]}
         />
       </div>
-      <div class="lesson-box">
-        <h3 class="title semi-bold align-center">The Pawn</h3>
-        <p class="text">{lessons[index]}</p>
+      <div className="lesson-box">
+        <h3 className="title semi-bold align-center">{title}</h3>
+        <p className="text">{lessons[index]}</p>
         <button
-          class="btn-block first"
+          className="btn-block first"
           onClick={previousPage}
           disabled={index === 0}
         >
           Previous
         </button>
         <button
-          class="btn-block"
+          className="btn-block"
           onClick={nextPage}
           disabled={index === lessons.length - 1}
         >

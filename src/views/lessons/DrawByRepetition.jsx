@@ -1,6 +1,7 @@
-import React from "react";
-import Board from "../../components/Board";
 import "../../css/views/Lessons.css";
+
+import Board from "../../components/Board";
+import React from "react";
 
 const DrawByRepetition = () => {
   const [index, set_index] = React.useState(0);
@@ -30,15 +31,19 @@ const DrawByRepetition = () => {
   return (
     <>
       <Board color="w" position={fens[index]} isInteractive={false} />
-      <div class="lesson-box">
-        <h3 class="title">Draw By Repetition</h3>
-        <p class="text">{lessons[index]}</p>
-        <button class="practice">Go to exercises</button>
-        <button class="prev btn" onClick={previousPage} disabled={index === 0}>
+      <div className="lesson-box">
+        <h3 className="title">Draw By Repetition</h3>
+        <p className="text">{lessons[index]}</p>
+        <button className="practice">Go to exercises</button>
+        <button
+          className="prev btn"
+          onClick={previousPage}
+          disabled={index === 0}
+        >
           Previous
         </button>
         <button
-          class="next btn"
+          className="next btn"
           onClick={nextPage}
           disabled={index === lessons.length - 1}
         >

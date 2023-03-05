@@ -45,6 +45,22 @@ div {
   text-align: center;
 }
 
+.danger {
+  color: rgb(255, 1, 1);
+}
+
+.orange {
+  color: rgb(255, 103, 1);
+}
+
+.warning {
+  color: yellow;
+}
+
+.success {
+  color: rgb(0, 214, 0);
+}
+
 .no-decoration {
   text-decoration: none;
 }
