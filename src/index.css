@@ -1,5 +1,6 @@
 :root {
   --primary-color-tint: #cbadff;
+  --primary-color-tint-hover: #af81ff;
   --primary-color: #6004ff;
   --primary-color-hover: #4000af;
   --primary-color-shade: #44325a;

@@ -122,14 +122,14 @@
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  background-color: #dbf1ff;
+  background-color: var(--primary-color-tint);
   border: 0.5px solid #0346ff;
   cursor: pointer;
   transition: all 0.25s;
 }
 
 .button-group .button:hover {
-  background-color: #8ea8ff;
+  background-color: var(--primary-color-tint-hover);
 }
 
 .button-group .button:nth-child(1) {
@@ -141,9 +141,10 @@
 }
 
 .button-group .button.active {
-  background-color: #7696ff;
+  background-color: var(--primary-color);
 }
 
 .button-group .button.active:hover {
-  background-color: #4f78ff;
+  background-color: var(--primary-color-hover);
+  color: #fff;
 }

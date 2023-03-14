@@ -1,14 +1,18 @@
 .dashboard-container .page-wrapper {
   padding: 8px;
+  display: grid;
+  grid-template-areas:
+    "profile  stats    friends"
+    "buttons  buttons  leaderboard";
+  grid-template-columns: 35vw 35vw 30vw;
+  grid-template-rows: 25vh 67vh;
+  padding: 0;
 }
 
 .page-wrapper .profile {
+  grid-area: profile;
   display: flex;
   align-items: center;
-  margin-top: 2vh;
-  margin-left: 5vh;
-  width: 35vw;
-  height: 15vh;
   position: relative;
 }
 
@@ -22,6 +26,7 @@
   flex-direction: column;
   margin-left: 2vw;
   height: 100%;
+  justify-content: center;
 }
 
 .profile .data-username {
@@ -46,13 +51,13 @@
 }
 
 .profile .edit-icon {
-  color: #0856ff;
+  color: var(--primary-color);
   cursor: pointer;
   transition: all 0.25s;
 }
 
 .profile .edit-icon:hover {
-  color: #0134a3;
+  color: var(--primary-color-hover);
 }
 
 .profile .rating {
@@ -71,6 +76,10 @@
 
 .flex-row {
   display: flex;
+}
+
+.stats {
+  grid-area: stats;
 }
 
 .stats .header {
@@ -125,10 +134,149 @@
 }
 
 .friends {
-  display: flex;
+  grid-area: friends;
+  margin-left: 1vw;
 }
 
 .friends .header {
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.friends .header:hover {
+  color: var(--primary-color);
+}
+
+.buttons {
+  grid-area: buttons;
+  display: grid;
+  grid-template-areas:
+    "button1 button2 button3 button4"
+    "button5 button6 button7 button8";
+  gap: 1vw;
+  padding: 10px;
+}
+
+.buttons .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #f3e6ff;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.buttons .button:hover {
+  background-color: #e3c5ff;
+}
+
+.buttons .button p {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1200px) {
+  .page-wrapper {
+    display: grid;
+    grid-template-areas:
+      "profile stats"
+      "friends buttons" !important;
+    grid-template-columns: 50vw 50vw !important;
+  }
+
+  .profile {
+    grid-area: profile;
+  }
+
+  .friends {
+    grid-area: friends;
+  }
+
+  .stats {
+    grid-area: stats;
+  }
+
+  .buttons {
+    grid-area: buttons;
+  }
+}
+
+.buttons .button .icon {
+  font-size: 5vw;
+  color: black;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
+}
+
+.buttons .button:nth-child(1):hover .icon {
+  color: yellow;
+  animation: moveup 1s cubic-bezier(0.075, 0.4, 0.8, 1) forwards;
+}
+
+.buttons .button:nth-child(2):hover .icon {
+  color: red;
+  animation: moveup 1s cubic-bezier(0.075, 0.4, 0.8, 1) forwards;
+}
+
+.buttons .button:nth-child(3):hover .icon {
+  color: grey;
+}
+
+.buttons .button:nth-child(4):hover .icon {
+  color: rgb(54, 145, 214);
+  animation: spin 1s cubic-bezier(0.075, 0.4, 0.8, 1);
+}
+
+.buttons .button:nth-child(6):hover .icon {
+  color: rgb(255, 140, 0);
+}
+
+.buttons .button:nth-child(7):hover .icon {
+  color: rgb(4, 174, 19);
+  animation: moveup 1s cubic-bezier(0.075, 0.4, 0.8, 1) forwards;
+}
+
+.buttons .button:nth-child(8):hover .icon {
+  animation: spin 1s cubic-bezier(0.075, 0.4, 0.8, 1);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveup {
+  0% {
+    margin-top: 0;
+  }
+
+  100% {
+    margin-top: -10%;
+  }
+}
+
+.friends .content {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.daily-puzzle {
+  grid-area: leaderboard;
+  margin-left: 1vw;
+}
+
+.daily-puzzle .header {
   font-weight: bold;
   font-size: 18px;
   text-align: left;

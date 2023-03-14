@@ -4,8 +4,8 @@ import React from "react";
 
 const Password = ({ placeholder, value, set_value, className, icon }) => {
   return (
-    <div className="inp-cont">
-      <div className="icon-container">
+    <div className="inp-cont flex flex-row justify-center align-center">
+      <div className="icon-container flex align-center justify-center">
         <i className={"icon pi " + icon}></i>
       </div>
       <div className="c-input-container">

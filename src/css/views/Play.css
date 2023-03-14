@@ -90,3 +90,7 @@
 .player.you {
   bottom: 0;
 }
+
+.history {
+  max-height: 40vh;
+}

@@ -3,7 +3,6 @@ import "../css/views/Play.css";
 import * as Chess from "chess.js";
 
 import React, { useEffect, useRef, useState } from "react";
-import { UseAuth, register_game } from "../firebase/firebase";
 import useQuery, {
   getMode,
   getTimeString,
@@ -18,6 +17,7 @@ import PlayPanel from "../components/PlayPanel";
 import { Toast } from "primereact/toast";
 import { confirmPopup } from "primereact/confirmpopup";
 import { convertSecondsToMinutesAndSeconds } from "../helpers/convertTimeToString";
+import { getUserData } from "../supabase/supabase.js";
 import io from "socket.io-client";
 import piecemove from "../assets/sounds/piecemove.mp3";
 import { ratingCalculate } from "../helpers/ratingCalculator";
@@ -26,10 +26,11 @@ import { v4 as uuidv4 } from "uuid";
 
 let backup_data = false;
 
-const socket = io("http://192.168.1.8:8000");
+const socket = io("https://chess-cage.onrender.com/");
 
 const Play = () => {
-  const user = UseAuth();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const query = useQuery();
 
   const [game, set_game] = React.useState(new Chess());
@@ -62,6 +63,8 @@ const Play = () => {
   useEffect(() => {
     document.title = "The Chessverse | New Game";
   }, []);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     if (firstUpdate.current) {
@@ -284,37 +287,6 @@ const Play = () => {
   const end_game = () => {
     set_game_end();
     set_game_dialog(true);
-    if (user) {
-      register_game(
-        backup_data.color === "w" ? user.uid : backup_data.uid,
-        backup_data.color === "b" ? user.uid : backup_data.uid,
-        game.history(),
-        history,
-        game.pgn(),
-        game.history().length / 2,
-        game_result,
-        game_reason,
-        user.blitz,
-        backup_data.rating,
-        ratingCalculate(
-          user.blitz,
-          backup_data.rating,
-          game_result === "1-0" ? 1 : 0
-        ),
-        ratingCalculate(
-          user.blitz,
-          backup_data.rating,
-          game_result === "1-0" ? 0 : 1
-        ),
-        convertSecondsToMinutesAndSeconds(custom_time)[0],
-        convertSecondsToMinutesAndSeconds(custom_time)[1],
-        custom_increment,
-        mode.toLowerCase(),
-        () => {
-          console.log("game registered");
-        }
-      );
-    }
   };
 
   function safeGameMutate(modify) {

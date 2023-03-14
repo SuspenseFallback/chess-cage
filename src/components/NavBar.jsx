@@ -114,7 +114,7 @@ const Navbar = () => {
             }
             onClick={() => setIsUserItems(!isUserItems)}
           >
-            {session.user.user_metadata.username}{" "}
+            {session ? session.user.user_metadata.username : ""}{" "}
             <FontAwesomeIcon icon={faCaretDown} />
           </div>
           <div
@@ -171,7 +171,7 @@ const Navbar = () => {
                 }
                 to="lessons"
               >
-                Themes
+                Stats
               </NavLink>
             </div>
             <div
@@ -192,13 +192,13 @@ const Navbar = () => {
           </>
           {!isLoggedIn ? (
             <>
-              <div>
+              <div className="nav-item nav-button">
                 {" "}
                 <NavLink className="nav-link" to="signup">
                   Sign up
                 </NavLink>
               </div>
-              <div>
+              <div className="nav-item nav-button">
                 {" "}
                 <NavLink className="nav-link" to="login">
                   Log in

@@ -76,7 +76,7 @@ const PuzzleTrainerPanel = ({
         />
       </div>
       {/* The button group */}
-      <div className="button-group">
+      <div className="button-list">
         <button
           className="btn-block btn-secondary"
           disabled={!puzzle_end}

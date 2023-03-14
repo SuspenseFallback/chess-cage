@@ -58,7 +58,9 @@ const LogIn = () => {
             />
           </div>
         </div>
-        <button className="btn-flex-login">Log in</button>
+        <button className="btn-flex-login" onClick={login_handler}>
+          Log in
+        </button>
       </div>
     </div>
   );
