@@ -114,7 +114,7 @@ const Navbar = () => {
             }
             onClick={() => setIsUserItems(!isUserItems)}
           >
-            {session.user.user_metadata.username}{" "}
+            {session ? session.user.user_metadata.username : ""}{" "}
             <FontAwesomeIcon icon={faCaretDown} />
           </div>
           <div

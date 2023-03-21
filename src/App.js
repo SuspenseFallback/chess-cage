@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NavBar />}>
+        <Route path="chess-cage" element={<NavBar />}>
           <Route index element={<Home />} />
           <Route path="verify" element={<Verify />} />
           <Route path="dashboard" element={<Dashboard />} />

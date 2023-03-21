@@ -1,2 +1,10 @@
-div.lessons-container {
+.lessons-container {
+  display: grid;
+  grid-template-areas: "select cards";
+  margin-top: 8vh;
+  max-height: 92vh;
+}
+
+div.select {
+  grid-area: "select";
 }
