@@ -1,42 +1,10 @@
 .lessons-container {
   display: grid;
-  grid-template-areas: "beginner intermediate advanced";
-  grid-template-columns: calc(100vw / 3), calc(100vw / 3), calc(100vw / 3);
+  grid-template-areas: "select cards";
   margin-top: 8vh;
   max-height: 92vh;
 }
 
-.beginner {
-  grid-area: beginner;
-  height: 92vw;
-  padding: 16px;
-}
-
-.intermediate {
-  grid-area: intermediate;
-  height: 92vw;
-}
-
-.advanced {
-  grid-area: advanced;
-  height: 92vw;
-}
-
-.lessons-container .header {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.item-title {
-  color: grey;
-  padding: 0 4px;
-  font-weight: bold;
-}
-
-.item {
-}
-
-.item-header {
-  font-size: 18px;
-  font-weight: bold;
+div.select {
+  grid-area: "select";
 }
