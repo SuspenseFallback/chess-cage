@@ -14,7 +14,7 @@ export function signUpWithEmail(username, email, password, callback) {
         data: {
           username: username,
         },
-        emailRedirectTo: "http://localhost:3000/login",
+        emailRedirectTo: "https://suspensefallback.github.io/chess-cage/login",
       },
     })
     .then(({ data, error }) => {

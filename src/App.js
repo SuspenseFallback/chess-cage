@@ -13,6 +13,7 @@ import {
 import BoardEditor from "./views/BoardEditor";
 import Dashboard from "./views/Dashboard";
 import Home from "./views/Home";
+import Lessons from "./views/Lessons";
 import LogIn from "./views/LogIn";
 import Material from "./views/lessons/Material";
 import MutualAgreement from "./views/lessons/MutualAgreement";
@@ -31,7 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NavBar />}>
+        <Route path="chess-cage" element={<NavBar />}>
           <Route index element={<Home />} />
           <Route path="verify" element={<Verify />} />
           <Route path="dashboard" element={<Dashboard />} />
@@ -44,6 +45,7 @@ function App() {
             <Route path="trainer" element={<PuzzleTrainer />} />
           </Route>
           <Route path="lessons">
+            <Route index element={<Lessons />} />
             <Route path="the-pawn" element={<ThePawn />} />
             <Route path="the-knight" element={<TheKnight />} />
             <Route path="the-bishop" element={<TheBishop />} />

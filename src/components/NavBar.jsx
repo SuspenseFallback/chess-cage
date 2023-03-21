@@ -56,7 +56,7 @@ const Navbar = () => {
   ) : (
     <>
       <div className="nav">
-        <p className="nav-logo">Logo</p>
+        <p className="nav-logo">ChessCage</p>
         <div className="nav-items">
           <div
             className={
@@ -76,7 +76,7 @@ const Navbar = () => {
                 ? "nav-item" + (isUserItems ? " hidden" : "")
                 : "nav-long-item"
             }
-            onClick={() => goToLink('/play?time="bullet"')}
+            onClick={() => goToLink('play?time="bullet"')}
           >
             <NavLink className={"nav-link"} to="play?time=bullet">
               Play
@@ -88,7 +88,7 @@ const Navbar = () => {
                 ? "nav-item" + (isUserItems ? " hidden" : "")
                 : "nav-long-item"
             }
-            onClick={() => goToLink("/puzzles/trainer")}
+            onClick={() => goToLink("puzzles/trainer")}
           >
             <NavLink className={"nav-link"} to="puzzles/trainer">
               Puzzles
@@ -100,9 +100,9 @@ const Navbar = () => {
                 ? "nav-item" + (isUserItems ? " hidden" : "")
                 : "nav-long-item"
             }
-            onClick={() => goToLink("/lessons/the-pawn")}
+            onClick={() => goToLink("lessons")}
           >
-            <NavLink className={"nav-link"} to="lessons/the-pawn">
+            <NavLink className={"nav-link"} to="lessons">
               Lessons
             </NavLink>
           </div>

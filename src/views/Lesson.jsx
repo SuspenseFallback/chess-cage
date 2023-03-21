@@ -1,4 +1,4 @@
-import "../css/views/Lessons.css";
+import "../css/views/Lesson.css";
 
 import Board from "../components/Board";
 import React from "react";
