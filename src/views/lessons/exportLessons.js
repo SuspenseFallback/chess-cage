@@ -67,6 +67,8 @@ const TheKnight = () => {
     "8/8/8/8/4N3/8/8/8 w - - 0 1",
     "8/8/8/8/4N3/8/8/8 w - - 0 1",
     "8/8/8/4b3/4N3/8/8/8 w - - 0 1",
+    "8/8/8/4b3/4N3/8/8/8 w - - 0 1",
+    "8/8/3N4/4b3/8/8/8/8 w - - 0 1",
     "r1bqkb1r/pppp1ppp/2n1pn2/1N6/3PPB2/8/PPP2PPP/R2QKBNR w - - 0 1",
     "start",
   ];
@@ -75,10 +77,21 @@ const TheKnight = () => {
     "The knight has an odd movement system - It moves in an 'L' shape.",
     "Knights can move to 'L' shapes in 8 directions, though their movements, though they can't move off the board.",
     "Knights have a special ability: They can jump over pieces, so knight attacks can't be blocked.",
+    "For example, here the knight can move over the bishop.",
+    "Like this.",
     "Knights are very useful for beginners, as their movements are unpredictable and easy to forget in your calculations.",
     "Congratulations! You completed the lesson.",
   ];
-  const highlights = [];
+  const highlights = [
+    [],
+    ["c5", "d2"],
+    ["c5", "c3", "d2", "f2", "g3", "g5", "f6", "d6"],
+    [],
+    ["d6", "f6"],
+    [],
+    [],
+    [],
+  ];
 
   return (
     <Lesson

@@ -1,10 +1,117 @@
 .lessons-container {
   display: grid;
-  grid-template-areas: "select cards";
+  grid-template-areas:
+    "next-lessons"
+    "select"
+    "cards";
+  grid-template-rows: 25vh 5vh 62vh;
   margin-top: 8vh;
   max-height: 92vh;
 }
 
+div.next-lessons {
+  grid-area: "next-lessons";
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+}
+
+.next-lessons .title {
+  text-align: left !important;
+  width: 100vw;
+  padding-left: 1vw;
+  font-weight: bold;
+  font-size: 1.3vw;
+}
+
+.space-around {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
 div.select {
   grid-area: "select";
+  margin-top: 1vw;
+}
+
+.select ul {
+  list-style: none;
+  margin: 0;
+}
+
+.select ul li {
+  display: inline-block;
+  padding: 8px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  margin-right: 1vw;
+  font-size: 1.1vw;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.select ul li:hover {
+  color: var(--primary-color-hover);
+  border-bottom: 2px solid var(--primary-color-hover);
+}
+
+.select ul li.active {
+  color: var(--primary-color-hover);
+  border-bottom: 2px solid var(--primary-color-hover);
+}
+
+.select ul li.active:hover {
+  color: var(--primary-color-shade);
+  border-bottom: 2px solid var(--primary-color-shade);
+}
+
+.content {
+  grid-area: "cards";
+  margin-top: 1.5vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.cards .space-around {
+  margin-top: 3vh;
+}
+
+.content .sidebar {
+  width: 20vw;
+}
+
+.content .cards {
+  width: 80vw;
+}
+
+.coming-soon {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+}
+
+.sidebar ul {
+  list-style: none;
+  width: 80%;
+}
+
+.sidebar ul li {
+  background-color: var(--primary-color-tint);
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #000;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.sidebar ul li:nth-child(1) {
+  border-radius: 5px 5px 0 0;
+}
+
+.sidebar ul li:hover {
+  background-color: var(--primary-color-tint-hover);
 }

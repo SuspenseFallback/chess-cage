@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  background-color: var(--primary-color-tint-hover);
 }
 
 .page-2,
@@ -85,12 +86,16 @@
 }
 
 .box-left {
+  display: flex;
   width: 50%;
   clip-path: polygon(0 0, calc(100% - 10vh) 0, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 0, calc(100% - 10vh) 0, 100% 100%, 0 100%);
   margin-right: -4.2vh;
   padding: 5px 11vh 5px 5px;
   text-align: center;
+  background-color: #fff;
+  height: 92vh;
+  align-items: center;
 }
 
 .box-right {
@@ -99,15 +104,7 @@
   clip-path: polygon(0 0, 100% 0, 100% 100%, calc(0% + 10vh) 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, calc(0% + 10vh) 100%);
   padding: 5px 5px 5px 11vh;
-  background: linear-gradient(
-    180deg,
-    #44325a,
-    90%,
-    #875dba,
-    95%,
-    hsl(267, 100%, 85%),
-    #ffffff
-  );
+  background-color: var(--primary-color-shade);
   position: relative;
   right: 0;
 }
