@@ -1,26 +1,30 @@
 {
   "files": {
-    "main.css": "/chess-cage/static/css/main.11229ce2.css",
-    "main.js": "/chess-cage/static/js/main.818b9264.js",
+    "main.css": "/chess-cage/static/css/main.113518e0.css",
+    "main.js": "/chess-cage/static/js/main.43f4c0f7.js",
     "static/js/845.8e245619.chunk.js": "/chess-cage/static/js/845.8e245619.chunk.js",
     "static/js/787.a61026b0.chunk.js": "/chess-cage/static/js/787.a61026b0.chunk.js",
     "static/media/primeicons.svg": "/chess-cage/static/media/primeicons.c6e2053303524e39530c.svg",
+    "static/media/wking.png": "/chess-cage/static/media/wking.e9382922174b060a2ef6.png",
     "static/media/primeicons.eot": "/chess-cage/static/media/primeicons.7fc4d8e224d1ff1b9c62.eot",
     "static/media/primeicons.woff": "/chess-cage/static/media/primeicons.449aa8c65cdc5c2a8686.woff",
     "static/media/primeicons.ttf": "/chess-cage/static/media/primeicons.91bacab1f083f2795272.ttf",
+    "static/media/wbishop.png": "/chess-cage/static/media/wbishop.a56597bfd288aa313e23.png",
+    "static/media/wqueen.png": "/chess-cage/static/media/wqueen.0a62976aa454f48a0cc4.png",
     "static/media/AvenirLTStd-Book.otf": "/chess-cage/static/media/AvenirLTStd-Book.813557df4c7a90b1a474.otf",
     "static/media/pawn.png": "/chess-cage/static/media/pawn.37ddb101eadc0d653472.png",
     "static/media/correct.mp3": "/chess-cage/static/media/correct.d5b83c4efbf2e72e51b1.mp3",
     "static/media/buzz.mp3": "/chess-cage/static/media/buzz.ad563e4b5c827bdced95.mp3",
+    "static/media/wrook.png": "/chess-cage/static/media/wrook.72a671a3b4ed6fc7647c.png",
     "static/media/piecemove.mp3": "/chess-cage/static/media/piecemove.8886754720ea3aaac789.mp3",
     "index.html": "/chess-cage/index.html",
-    "main.11229ce2.css.map": "/chess-cage/static/css/main.11229ce2.css.map",
-    "main.818b9264.js.map": "/chess-cage/static/js/main.818b9264.js.map",
+    "main.113518e0.css.map": "/chess-cage/static/css/main.113518e0.css.map",
+    "main.43f4c0f7.js.map": "/chess-cage/static/js/main.43f4c0f7.js.map",
     "845.8e245619.chunk.js.map": "/chess-cage/static/js/845.8e245619.chunk.js.map",
     "787.a61026b0.chunk.js.map": "/chess-cage/static/js/787.a61026b0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.11229ce2.css",
-    "static/js/main.818b9264.js"
+    "static/css/main.113518e0.css",
+    "static/js/main.43f4c0f7.js"
   ]
 }
