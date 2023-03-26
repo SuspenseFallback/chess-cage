@@ -3,11 +3,11 @@ import "../css/components/Navbar.css";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { faBars, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { getSession, signOut } from "../supabase/supabase";
 
 import { Avatar } from "primereact/avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SpinnerPage from "./SpinnerPage";
-import { getSession } from "../supabase/supabase";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -35,6 +35,14 @@ const Navbar = () => {
       console.log(data);
     });
   }, []);
+
+  const signOutHandler = () => {
+    signOut((err) => {
+      if (err) throw err;
+
+      navigate("/");
+    });
+  };
 
   useEffect(() => {
     document.addEventListener("resize", () => {
@@ -213,7 +221,9 @@ const Navbar = () => {
               >
                 <Avatar icon="pi pi-user" shape="circle" />
               </div>
-              <div className={"nav-item danger last"}>Log out</div>
+              <div className={"nav-item danger last"} onClick={signOutHandler}>
+                Log out
+              </div>
             </>
           )}
           <div

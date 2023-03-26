@@ -32,7 +32,7 @@ const SignUp = () => {
       if (errCode === 1) {
         set_err_msg("Username taken. Please enter something else.");
       } else {
-        navigate("/verify");
+        navigate("/chess-cage/verify");
       }
     });
   };

@@ -1,106 +1,101 @@
 .ai-box {
+  width: 30vw;
   position: absolute;
-  right: 2%;
-  top: 12.3%;
-  background-color: rgb(184, 222, 255);
-  height: 87%;
-  border-radius: 10px;
-  width: 25vw;
-  max-width: 25vw;
-}
-
-.ai-box .title {
-  color: white;
+  right: 5%;
+  top: 16%;
   text-align: center;
-  font-family: "Avenir";
-  font-size: 20px;
-  background-color: rgb(99, 182, 255);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: -2%;
-  border-radius: 10px;
 }
 
-.ai-box .text {
-  padding: 20px;
-  font-family: "Avenir";
-  font-size: 18px;
+.history {
+  max-height: 40vh;
+}
+
+.ai-selector .banner {
+  height: 20%;
+}
+
+.banner p {
+  margin: 0;
+}
+
+.ai-selector .selector {
+  height: 80%;
+}
+
+.selector .item {
+  cursor: pointer;
+  transition: 0.25s;
+  margin: 4px;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.selector .item.active {
+  border: 2px solid var(--primary-color);
+}
+
+.selector .item.active:hover {
+  border: 1px solid var(--primary-color);
+}
+
+.selector .item:hover {
+  border: 2px solid var(--primary-color);
+}
+
+.ai-box .select {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ai-box .select li {
   display: inline-block;
+  margin: 5px;
 }
 
-.prev.btn,
-.next.btn {
-  position: absolute;
-  bottom: 6%;
-  width: 40%;
-  padding: 12px;
-  background-color: rgb(255, 147, 5);
-  font-family: "Avenir";
-  font-size: 16px;
-  color: white;
-  transition: 0.25s;
-  z-index: 2;
-  border: 1px solid rgb(255, 123, 0);
-  border-radius: 5px;
+.selector .item .title {
+  font-weight: bold;
+  margin: 2px;
 }
 
-.prev {
-  left: 7%;
+.selector .item .subtitle {
+  margin: 0;
+  color: grey;
 }
 
-.next {
-  right: 7%;
+.selector .item .img {
+  width: 100px;
+  height: 100px;
 }
 
-.ai-box .btn:hover {
-  background-color: rgb(255, 123, 0);
+.ai-box .circle {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: 0.1s;
 }
 
-.practice {
-  position: absolute;
-  width: 86%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid rgb(63, 63, 62);
-  background-color: rgb(107, 107, 107);
-  font-family: "Avenir";
-  font-size: 16px;
-  color: white;
-  transition: 0.25s;
-  bottom: 15%;
-  left: 7%;
+.circle.white {
+  border: 1px solid #000;
 }
 
-.practice:hover {
-  border: 1px solid rgb(36, 36, 36);
-  background-color: rgb(63, 63, 62);
+.circle.black {
+  background-color: #000;
 }
 
-.btn:disabled {
-  background-color: #ffcf8f;
-  border: #ffba5f;
+.circle.any {
+  background: linear-gradient(90deg, #ffffff 50%, #000000 50%);
+  border: 1px solid #000000;
+  margin-right: 5px;
 }
 
-.start {
-  width: 10vw;
-  padding: 12px;
+.circle.active {
+  border: 3px solid var(--primary-color);
 }
 
-.ai-box .slider {
-  padding: 2px;
-  text-align: center;
-  width: 90%;
-  position: absolute;
-  left: 3%;
+.circle:hover {
+  border: 2px solid #9455ff;
 }
 
-.ai-box .subtitle {
-  text-align: center;
-  font-family: "Avenir";
-  font-size: 16px;
-  font-weight: 500;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: -2%;
-  border-radius: 10px;
+.circle.active:hover {
+  border: 2px solid #000000;
 }

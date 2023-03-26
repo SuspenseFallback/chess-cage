@@ -5,9 +5,9 @@ import {
   convertTimeToString,
 } from "../helpers/convertTimeToString";
 
+import AISelector from "./PlayPanel/AISelector";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
-import { SelectButton } from "primereact/selectbutton";
 import { Slider } from "primereact/slider";
 import { UseAuth } from "../firebase/firebase";
 import { confirmPopup } from "primereact/confirmpopup";
@@ -48,7 +48,6 @@ const PlayPanel = ({
   const [active, set_active] = useState(0);
   const [lobby, set_lobby] = useState("lobby");
   const [msg, set_msg] = useState("");
-  const [cc_active, set_cc_active] = useState(3);
   const modes = [
     { label: "Bullet", value: "Bullet" },
     { label: "Blitz", value: "Blitz" },
@@ -56,19 +55,19 @@ const PlayPanel = ({
     { label: "Classical", value: "Classical" },
   ];
 
-  // useEffect(() => {
-  //   document.addEventListener("keydown", (e) => {
-  //     if (e.key === "ArrowDown") {
-  //       last_move();
-  //     } else if (e.key === "ArrowLeft") {
-  //       next_move();
-  //     } else if (e.key === "ArrowRight") {
-  //       prev_move();
-  //     } else if (e.key === "ArrowUp") {
-  //       first_move();
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") {
+        last_move();
+      } else if (e.key === "ArrowLeft") {
+        next_move();
+      } else if (e.key === "ArrowRight") {
+        prev_move();
+      } else if (e.key === "ArrowUp") {
+        first_move();
+      }
+    });
+  }, []);
 
   const onChat = (e) => {
     set_msg(e.target.value);
@@ -301,12 +300,11 @@ const PlayPanel = ({
             <p className="subtitle">
               Mode: <span>{mode}</span>
             </p>
+            {/* Mode select */}
             <Dropdown
               value={mode}
               options={modes}
-              onChange={(e) => {
-                set_mode(e.value);
-              }}
+              onChange={(e) => set_mode(e.value)}
               placeholder={query.get("time")}
               style={{
                 width: "90%",
@@ -321,8 +319,8 @@ const PlayPanel = ({
               onChange={(e) => {
                 set_time(e.value);
               }}
-              min={5}
-              max={60 * 60}
+              min={60}
+              max={3600}
               step={5}
             />
             <p

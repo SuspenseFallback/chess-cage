@@ -94,3 +94,8 @@
 .history {
   max-height: 40vh;
 }
+
+.ai-selector {
+  height: 100%;
+  width: 100%;
+}

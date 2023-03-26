@@ -16,7 +16,6 @@ import { Dialog } from "primereact/dialog";
 import PlayPanel from "../components/PlayPanel";
 import { Toast } from "primereact/toast";
 import { confirmPopup } from "primereact/confirmpopup";
-import { convertSecondsToMinutesAndSeconds } from "../helpers/convertTimeToString";
 import { getUserData } from "../supabase/supabase.js";
 import io from "socket.io-client";
 import piecemove from "../assets/sounds/piecemove.mp3";
@@ -64,8 +63,6 @@ const Play = () => {
     document.title = "The Chessverse | New Game";
   }, []);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     if (firstUpdate.current) {
       firstUpdate.current = false;
@@ -80,6 +77,10 @@ const Play = () => {
   useEffect(() => {
     socket.on("connect", () => {
       console.log("connected");
+      socket.emit("username", {
+        socketid: socket.id,
+        username: "Anonymous",
+      });
     });
     socket.on("startGame", (res) => {
       console.log("start game");
@@ -144,6 +145,7 @@ const Play = () => {
       }
     });
     socket.on("resign", () => {
+      set_game_result(backup_data.color === "w" ? "1-0" : "0-1");
       set_game_reason("by resignation");
     });
     socket.on("takeback request", () => {
@@ -257,31 +259,43 @@ const Play = () => {
     set_game_result(
       color === game.turn()
         ? color === "w"
-          ? "1-0"
-          : "0-1"
+          ? "0-1"
+          : "1-0"
         : color === "b"
         ? "1-0"
         : "0-1"
     );
     set_game_reason("by timeout");
   };
-  useEffect(() => {
-    console.log("ids: ", id);
-  }, [id]);
 
   const set_time = (new_time) => {
-    if (new_time > 2 * 60 && new_time < 10 * 60) {
-      set_mode("Blitz");
-    } else if (new_time >= 10 * 60 && new_time < 20 * 60) {
-      set_mode("Rapid");
-    } else if (new_time <= 120) {
-      set_mode("Bullet");
-    } else {
+    if (new_time >= 25 * 60 && mode !== "Classical") {
       set_mode("Classical");
+    } else if (new_time >= 480 && new_time < 25 * 60 && mode !== "Rapid") {
+      console.log("Rapid");
+      set_mode("Rapid");
+    } else if (new_time > 180 && new_time < 480 && mode !== "Blitz") {
+      set_mode("Blitz");
+    } else if (new_time <= 180 && mode !== "Bullet") {
+      set_mode("Bullet");
     }
+
     set_custom_time(new_time);
     set_white_time(new_time);
     set_black_time(new_time);
+  };
+
+  const set_new_mode = (mode) => {
+    if (mode === "Bullet") {
+      set_time(60);
+    } else if (mode === "Blitz") {
+      set_time(300);
+    } else if (mode === "Rapid") {
+      set_time(600);
+    } else if (mode === "Classical") {
+      set_time(60 * 25);
+    }
+    set_mode(mode);
   };
 
   const end_game = () => {
@@ -424,54 +438,60 @@ const Play = () => {
   };
 
   let onDrop = (sourceSquare, targetSquare) => {
-    if (!turn) {
-      return "snapback";
-    }
     let move = null;
     safeGameMutate((game) => {
       move = game.move({
         from: sourceSquare,
         to: targetSquare,
-        promotion: "q", // always promote to a queen for example simplicity
+        promotion: "q",
       });
+
+      if (move === null) {
+        console.log("move is null");
+        return "snapback";
+      } else {
+        if (backup_data.color === "w") {
+          set_white_time((t) => t + custom_increment);
+        } else {
+          set_black_time((t) => t + custom_increment);
+        }
+
+        console.log(game.fen());
+        set_position(game.fen());
+        set_history((h) => [...h, game.fen()]);
+        console.log(active_move + 1);
+        set_active_move((m) => m + 1);
+        set_turn(!turn);
+        playPieceMove();
+        socket.emit("new move", {
+          socketid: backup_data.socketid,
+          from: sourceSquare,
+          to: targetSquare,
+          time: custom_time,
+          promotion: "q",
+        });
+      }
     });
 
-    if (move === null) {
-      return "snapback";
-    }
     if (takeback_offer) {
       takeback_reject();
     }
     if (draw_offer) {
       draw_reject();
     }
-    if (backup_data.color === "w") {
-      set_white_time((t) => t + custom_increment);
-    } else {
-      set_black_time((t) => t + custom_increment);
-    }
-    socket.emit("new move", {
-      socketid: backup_data.socketid,
-      from: sourceSquare,
-      to: targetSquare,
-      time: custom_time,
-      promotion: "q",
-    });
-    set_position(game.fen());
-    set_history((h) => [...h, game.fen()]);
-    console.log(active_move + 1);
-    set_active_move((m) => m + 1);
-    set_turn(!turn);
-    playPieceMove();
+
     if (game.game_over()) {
-      set_game_result(backup_data.color === "w" ? "1-0" : "0-1");
       if (game.in_checkmate()) {
+        set_game_result(backup_data.color === "w" ? "1-0" : "0-1");
         set_game_reason("by checkmate");
       } else if (game.in_stalemate()) {
+        set_game_result(backup_data.color === "w" ? "1/2-1/2" : "1/2-1/2");
         set_game_reason("by stalemate");
       } else if (game.in_threefold_repetition()) {
+        set_game_result(backup_data.color === "w" ? "1/2-1/2" : "1/2-1/2");
         set_game_reason("by threefold");
       } else if (game.insufficient_material()) {
+        set_game_result(backup_data.color === "w" ? "1/2-1/2" : "1/2-1/2");
         set_game_reason("by insufficient");
       }
     }
@@ -486,11 +506,12 @@ const Play = () => {
         to: targetSquare,
         promotion: "q", // always promote to a queen for example simplicity
       });
+
+      if (move === null) {
+        return "snapback";
+      }
     });
 
-    if (move === null) {
-      return "snapback";
-    }
     if (backup_data.color === "b") {
       set_white_time((t) => t + custom_increment);
     } else {
@@ -503,14 +524,17 @@ const Play = () => {
     set_turn(!turn);
     playPieceMove();
     if (game.game_over()) {
-      set_game_result(backup_data.color === "w" ? "1-0" : "0-1");
       if (game.in_checkmate()) {
+        set_game_result(backup_data.color === "w" ? "0-1" : "1-0");
         set_game_reason("by checkmate");
       } else if (game.in_stalemate()) {
+        set_game_result(backup_data.color === "w" ? "1/2-1/2" : "1/2-1/2");
         set_game_reason("by stalemate");
       } else if (game.in_threefold_repetition()) {
+        set_game_result(backup_data.color === "w" ? "1/2-1/2" : "1/2-1/2");
         set_game_reason("by threefold");
       } else if (game.insufficient_material()) {
+        set_game_result(backup_data.color === "w" ? "1/2-1/2" : "1/2-1/2");
         set_game_reason("by insufficient");
       }
     }
@@ -688,16 +712,6 @@ const Play = () => {
       </Dialog>
       <Toast ref={toast} />
       <div className="game">
-        <div className="game-board-container">
-          <Board
-            color={backup_data ? backup_data.color : "w"}
-            isInteractive={start && !game_end}
-            position={position}
-            game={game}
-            arrows={true}
-            onDrop={onDrop}
-          />
-        </div>
         <div className="player opp">
           <p className="opp name">
             <Avatar icon="pi pi-user" shape="circle" />{" "}
@@ -742,6 +756,17 @@ const Play = () => {
             onTimeout={timeOut}
           />
         </div>
+        <div className="game-board-container">
+          <Board
+            color={backup_data ? backup_data.color : "w"}
+            isInteractive={start && !game_end}
+            position={position}
+            game={game}
+            arrows={true}
+            onDrop={onDrop}
+          />
+        </div>
+
         <div className="player you">
           <p className="you name">
             <Avatar icon="pi pi-user" shape="circle" /> <span>You</span>{" "}
@@ -788,12 +813,12 @@ const Play = () => {
           start={start}
           game_end={game_end}
           startGame={startGame}
-          set_time={(t) => set_time(t)}
+          set_time={set_time}
           time={custom_time}
           custom_increment={custom_increment}
           set_custom_increment={set_custom_increment}
           mode={mode}
-          set_mode={set_mode}
+          set_mode={set_new_mode}
           send_message={send_message}
           send_lobby_message={send_lobby_message}
           chat={chat}

@@ -6,7 +6,6 @@ import { throw_err, throw_warning } from "../helpers/throw_err";
 
 // import rough from "roughjs/bundled/rough.cjs";
 import { Chessboard } from "react-chessboard";
-import { squareToNum } from "../helpers/squareToNum";
 
 const Board = ({
   color = throw_err(400, "Color is required"),
@@ -22,7 +21,8 @@ const Board = ({
     ["rgba(0, 116, 255, 0.6)", "rgba(0, 116, 200, 0.6)"],
     ["rgba(0, 245, 66, 0.6)", "rgba(0, 200, 66, 0.6)"],
     ["rgba(255, 255, 0, 0.6)", "rgba(200, 200, 0, 0.6)"],
-    ["rgba(255, 180, 138, 0.6)", "rgba(255, 150, 138, 0.6)"],
+    ["##7b58b8", "#7040c2"],
+    ["#66508c", "#462d73"],
   ],
   highlightedSquares,
   onDrop = () => {},
@@ -34,7 +34,9 @@ const Board = ({
     ctrlKey: false,
     shiftKey: false,
   });
-  const [piece_square, set_piece_square] = useState("");
+  const [clicked_square, set_clicked_square] = useState("");
+  const [is_square_piece, set_is_square_piece] = useState(false);
+  const [possible_moves, set_possible_moves] = useState([]);
 
   useEffect(() => {
     let newKeys = { ...keys };
@@ -74,7 +76,7 @@ const Board = ({
   }, [highlightedSquares]);
 
   const element_highlight = (square, idx) => {
-    const index = lightOrDark(squareToNum(square)) === "light" ? 0 : 1;
+    const index = lightOrDark(square) === "light" ? 0 : 1;
     if (
       document.querySelector('[data-square="' + square + '"]').style
         .backgroundColor === highlightColors[3][index]
@@ -90,6 +92,7 @@ const Board = ({
   };
 
   const highlight_square = (square) => {
+    console.log(square);
     if (highlight) {
       if (keys.altKey && keys.shiftKey) {
         element_highlight(square, 3);
@@ -103,24 +106,76 @@ const Board = ({
     }
   };
 
+  const possible_move_highlight = (moves) => {
+    moves.forEach((move) => {
+      document.querySelector(
+        '[data-square="' + move.to + '"]'
+      ).style.backgroundColor =
+        highlightColors[5][lightOrDark(move.to) === "light" ? 0 : 1];
+    });
+  };
+
   const onSquareClick = (square) => {
     clearSquares();
     if (isInteractive) {
-      if (game.get(square) == piece_square) {
-        set_piece_square("");
-      } else if (game.get(square) && !piece_square) {
-        set_piece_square(square);
+      if (!game.get(square) && !clicked_square) {
+        set_clicked_square(square);
+        set_is_square_piece(false);
         document.querySelector(
           '[data-square="' + square + '"]'
         ).style.backgroundColor =
-          highlightColors[4][game.get(square).color === "w" ? 0 : 1];
-      } else if (game.get(square) && piece_square) {
-        set_piece_square(square);
-      } else if (!game.get(square) && piece_square) {
-        set_piece_square("");
-        onDrop(piece_square, square);
+          highlightColors[4][lightOrDark(square) === "light" ? 0 : 1];
+      } else if (game.get(square) && !clicked_square) {
+        if (color === game.get(square).color) {
+          set_clicked_square(square);
+          set_is_square_piece(true);
+          set_possible_moves(game.moves({ square: square, verbose: true }));
+          possible_move_highlight(
+            game.moves({ square: square, verbose: true })
+          );
+          document.querySelector(
+            '[data-square="' + square + '"]'
+          ).style.backgroundColor =
+            highlightColors[4][lightOrDark(square) === "light" ? 0 : 1];
+        } else {
+          set_clicked_square(false);
+          set_is_square_piece(false);
+        }
+      } else if (clicked_square && !is_square_piece && !game.get(square)) {
+        set_clicked_square(square);
+        set_is_square_piece(false);
+      } else if (clicked_square && !is_square_piece && game.get(square)) {
+        if (color === game.get(square).color) {
+          set_clicked_square(square);
+          set_is_square_piece(true);
+          set_possible_moves(game.moves({ square: square, verbose: true }));
+          possible_move_highlight(
+            game.moves({ square: square, verbose: true })
+          );
+          document.querySelector(
+            '[data-square="' + square + '"]'
+          ).style.backgroundColor =
+            highlightColors[4][lightOrDark(square) === "light" ? 0 : 1];
+        } else {
+          set_clicked_square(false);
+          set_is_square_piece(false);
+        }
+      } else if (clicked_square && is_square_piece) {
+        console.log("5");
+        possible_moves.forEach((move) => {
+          console.log(move.to === square);
+          if (move.to === square) {
+            dropPiece(clicked_square, square);
+          }
+        });
+
+        set_clicked_square(false);
+        set_is_square_piece(false);
       } else {
-        set_piece_square("");
+        console.log("6");
+        set_clicked_square(false);
+        set_is_square_piece(false);
+        return;
       }
     }
   };
@@ -128,9 +183,7 @@ const Board = ({
   const clearSquares = () => {
     squares.forEach((square) => {
       const color =
-        lightOrDark(squareToNum(square)) === "light"
-          ? lightSquareColor
-          : darkSquareColor;
+        lightOrDark(square) === "light" ? lightSquareColor : darkSquareColor;
       document.querySelector(
         `[data-square='${square}']`
       ).style.backgroundColor = color;

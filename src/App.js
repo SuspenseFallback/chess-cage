@@ -10,6 +10,7 @@ import {
   TheRook,
 } from "./views/lessons/exportLessons";
 
+import AI from "./views/AI";
 import BoardEditor from "./views/BoardEditor";
 import Dashboard from "./views/Dashboard";
 import Home from "./views/Home";
@@ -30,9 +31,9 @@ import Verify from "./views/Verify";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/chess-cage">
       <Routes>
-        <Route path="chess-cage" element={<NavBar />}>
+        <Route element={<NavBar />}>
           <Route index element={<Home />} />
           <Route path="verify" element={<Verify />} />
           <Route path="dashboard" element={<Dashboard />} />
@@ -40,6 +41,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="play">
             <Route index element={<Play />} />
+            <Route path="ai" element={<AI />} />
           </Route>
           <Route path="puzzles">
             <Route path="trainer" element={<PuzzleTrainer />} />

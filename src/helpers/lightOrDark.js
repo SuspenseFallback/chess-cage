@@ -69,133 +69,133 @@ export const squares = [
 
 export const lightOrDark = (square) => {
   switch (square) {
-    case 1:
+    case "a1":
       return "light";
-    case 2:
+    case "a2":
       return "dark";
-    case 3:
+    case "a3":
       return "light";
-    case 4:
+    case "a4":
       return "dark";
-    case 5:
+    case "a5":
       return "light";
-    case 6:
+    case "a6":
       return "dark";
-    case 7:
+    case "a7":
       return "light";
-    case 8:
+    case "a8":
       return "dark";
-    case 9:
+    case "b1":
       return "dark";
-    case 10:
+    case "b2":
       return "light";
-    case 11:
+    case "b3":
       return "dark";
-    case 12:
+    case "b4":
       return "light";
-    case 13:
+    case "b5":
       return "dark";
-    case 14:
+    case "b6":
       return "light";
-    case 15:
+    case "b7":
       return "dark";
-    case 16:
+    case "b8":
       return "light";
-    case 17:
+    case "c1":
       return "light";
-    case 18:
+    case "c2":
       return "dark";
-    case 19:
+    case "c3":
       return "light";
-    case 20:
+    case "c4":
       return "dark";
-    case 21:
+    case "c5":
       return "light";
-    case 22:
+    case "c6":
       return "dark";
-    case 23:
+    case "c7":
       return "light";
-    case 24:
+    case "c8":
       return "dark";
-    case 25:
+    case "d1":
       return "dark";
-    case 26:
+    case "d2":
       return "light";
-    case 27:
+    case "d3":
       return "dark";
-    case 28:
+    case "d4":
       return "light";
-    case 29:
+    case "d5":
       return "dark";
-    case 30:
+    case "d6":
       return "light";
-    case 31:
+    case "d7":
       return "dark";
-    case 32:
+    case "d8":
       return "light";
-    case 33:
+    case "e1":
       return "light";
-    case 34:
+    case "e2":
       return "dark";
-    case 35:
+    case "e3":
       return "light";
-    case 36:
+    case "e4":
       return "dark";
-    case 37:
+    case "e5":
       return "light";
-    case 38:
+    case "e6":
       return "dark";
-    case 39:
+    case "e7":
       return "light";
-    case 40:
+    case "e8":
       return "dark";
-    case 41:
+    case "f1":
       return "dark";
-    case 42:
+    case "f2":
       return "light";
-    case 43:
+    case "f3":
       return "dark";
-    case 44:
+    case "f4":
       return "light";
-    case 45:
-      return "dark";
-    case 46:
+    case "f5":
+      return "ldark";
+    case "f6":
       return "light";
-    case 47:
+    case "f7":
       return "dark";
-    case 48:
+    case "f8":
       return "light";
-    case 49:
+    case "g1":
       return "light";
-    case 50:
+    case "g2":
       return "dark";
-    case 51:
+    case "g3":
       return "light";
-    case 52:
+    case "g4":
       return "dark";
-    case 53:
+    case "g5":
       return "light";
-    case 54:
+    case "g6":
       return "dark";
-    case 55:
+    case "g7":
       return "light";
-    case 56:
+    case "g8":
       return "dark";
-    case 57:
+    case "h1":
       return "dark";
-    case 58:
+    case "h2":
       return "light";
-    case 59:
+    case "h3":
       return "dark";
-    case 60:
+    case "h4":
       return "light";
-    case 61:
+    case "h5":
       return "dark";
-    case 62:
+    case "h6":
       return "light";
-    case 63:
+    case "h7":
       return "dark";
-    case 64:
+    case "h8":
       return "light";
     default:
       return throw_err(400, "Invalid value");

@@ -1,5 +1,5 @@
 export function isCapture(move) {
-  if (move.includes("x")) {
+  if (move.captured) {
     return true;
   } else {
     return false;

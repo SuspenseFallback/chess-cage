@@ -9,6 +9,8 @@ export default function useQuery() {
 
 export function getMode(query) {
   let mode = query.get("time").split("");
+  mode.splice(0, 1);
+  mode.splice(mode.length - 1, 1);
   mode[0] = mode[0].toUpperCase();
   return mode.join("");
 }
@@ -19,16 +21,16 @@ export function getTiming(query) {
     default:
       timing = 5 * 60;
       break;
-    case "bullet":
+    case '"bullet"':
       timing = 1 * 60;
       break;
-    case "blitz":
+    case '"blitz"':
       timing = 5 * 60;
       break;
-    case "rapid":
+    case '"rapid"':
       timing = 10 * 60;
       break;
-    case "classical":
+    case '"classical"':
       timing = 30 * 60;
       break;
   }
