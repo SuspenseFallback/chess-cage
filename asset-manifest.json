@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chess-cage/static/css/main.113518e0.css",
-    "main.js": "/chess-cage/static/js/main.43f4c0f7.js",
+    "main.css": "/chess-cage/static/css/main.3561a5a0.css",
+    "main.js": "/chess-cage/static/js/main.e97751ab.js",
     "static/js/845.8e245619.chunk.js": "/chess-cage/static/js/845.8e245619.chunk.js",
     "static/js/787.a61026b0.chunk.js": "/chess-cage/static/js/787.a61026b0.chunk.js",
     "static/media/primeicons.svg": "/chess-cage/static/media/primeicons.c6e2053303524e39530c.svg",
@@ -18,13 +18,13 @@
     "static/media/wrook.png": "/chess-cage/static/media/wrook.72a671a3b4ed6fc7647c.png",
     "static/media/piecemove.mp3": "/chess-cage/static/media/piecemove.8886754720ea3aaac789.mp3",
     "index.html": "/chess-cage/index.html",
-    "main.113518e0.css.map": "/chess-cage/static/css/main.113518e0.css.map",
-    "main.43f4c0f7.js.map": "/chess-cage/static/js/main.43f4c0f7.js.map",
+    "main.3561a5a0.css.map": "/chess-cage/static/css/main.3561a5a0.css.map",
+    "main.e97751ab.js.map": "/chess-cage/static/js/main.e97751ab.js.map",
     "845.8e245619.chunk.js.map": "/chess-cage/static/js/845.8e245619.chunk.js.map",
     "787.a61026b0.chunk.js.map": "/chess-cage/static/js/787.a61026b0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.113518e0.css",
-    "static/js/main.43f4c0f7.js"
+    "static/css/main.3561a5a0.css",
+    "static/js/main.e97751ab.js"
   ]
 }
