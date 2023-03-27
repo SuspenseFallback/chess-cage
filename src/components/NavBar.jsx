@@ -90,6 +90,19 @@ const Navbar = () => {
               Play
             </NavLink>
           </div>
+
+          <div
+            className={
+              !isResponsiveMenu
+                ? "nav-item" + (isUserItems ? " hidden" : "")
+                : "nav-long-item"
+            }
+            onClick={() => goToLink("play/ai")}
+          >
+            <NavLink className={"nav-link"} to="play/ai">
+              AI
+            </NavLink>
+          </div>
           <div
             className={
               !isResponsiveMenu
