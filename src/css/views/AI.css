@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.ai-box .game-box-content .history {
+  max-height: 40vh;
+  height: 40vh;
+}
+
 .history {
   max-height: 40vh;
 }

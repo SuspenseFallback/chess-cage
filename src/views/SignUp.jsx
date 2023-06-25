@@ -154,7 +154,7 @@ const SignUp = () => {
           </div>
           <div className="input-container">
             <Password
-              placeholder="Comfirm Password"
+              placeholder="Confirm Password"
               icon="pi-unlock"
               type="password"
               value={confirmation}

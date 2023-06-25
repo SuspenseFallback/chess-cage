@@ -28,6 +28,7 @@ import SignUp from "./views/SignUp";
 import Stalemate from "./views/lessons/Stalemate";
 import ThePawnDrills from "./views/drills/Drills";
 import Verify from "./views/Verify";
+import CustomBoard from "./components/CustomBoard/CustomBoard";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route element={<NavBar />}>
           <Route index element={<Home />} />
+          <Route path="board" element={<CustomBoard />} />
           <Route path="verify" element={<Verify />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<LogIn />} />

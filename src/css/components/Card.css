@@ -1,5 +1,4 @@
 .card {
-  box-shadow: 0 0 4px 0 #525151;
   width: 40vw;
   height: 10vw;
   display: flex;
@@ -7,6 +6,7 @@
   padding: 8px;
   transition: all 0.25s;
   cursor: pointer;
+  background-color: #000;
 }
 
 .card .img-column {
@@ -34,6 +34,7 @@
   font-size: 1.4vw;
   margin: 2px;
   transition: all 0.25s;
+  color: #fff;
 }
 
 .card .subheader {
@@ -61,26 +62,10 @@
   margin: 0;
 }
 
-.card:not(.mini):hover {
-  box-shadow: 0 0 6px 0 #525151;
-  width: calc(40vw + 5px);
-  height: calc(10vw + 5px);
-}
-
-.card:not(.mini):hover .img {
-  height: 60.3%;
-  width: 46%;
-}
-
 .card:hover .header {
   color: var(--primary-color);
 }
 
 .card:hover .subheader {
   color: #747474;
-}
-
-.card.mini:hover {
-  box-shadow: 0 0 6px 0 #525151;
-  width: calc(37vw + 5px);
 }

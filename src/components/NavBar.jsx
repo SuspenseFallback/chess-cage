@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [session, setSession] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isUserItems, setIsUserItems] = useState(false);
   const [isResponsiveMenu, setResponsiveMenu] = useState(false);
 
@@ -90,7 +90,6 @@ const Navbar = () => {
               Play
             </NavLink>
           </div>
-
           <div
             className={
               !isResponsiveMenu
@@ -247,7 +246,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className={isResponsiveMenu ? "overlay" : ""}>
+      <div className={"body-wrapper" + (isResponsiveMenu ? "overlay" : "")}>
         <Outlet />
       </div>
     </>

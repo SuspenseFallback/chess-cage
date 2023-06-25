@@ -37,12 +37,13 @@
   display: inline;
   padding: 12px;
   transition: 0.25s;
-  border-radius: 5px;
-  background-color: var(--primary-color);
+  border-radius: 3px;
+  background-color: #000;
+  box-shadow: 0 2px 1px rgba(0, 0, 0);
 }
 
 .nav .nav-items .nav-item.nav-button:hover {
-  background-color: var(--primary-color-hover);
+  background-color: #2b2b2b;
 }
 
 .nav .nav-items .nav-item.nav-button .nav-link {
@@ -52,13 +53,13 @@
 .nav .nav-items .nav-item .nav-link {
   color: #000;
   text-decoration: none;
-  font-family: "Nunito Sans";
+  font-family: "Avenir";
 }
 
 .nav .nav-logo {
   display: inline;
-  color: rgb(96, 4, 255);
-  font-family: "Nunito Sans";
+  color: #6004ff;
+  font-family: "Avenir";
   font-weight: 600;
   font-size: 20px;
   position: absolute;
@@ -164,4 +165,9 @@
   z-index: 2;
   background-color: #434343;
   opacity: 0.7;
+}
+
+.body-wrapper {
+  width: 100vw;
+  margin-top: 8vh;
 }

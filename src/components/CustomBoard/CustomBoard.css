@@ -1,0 +1,41 @@
+.page {
+  width: 100vw;
+  height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-board {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  width: 480px;
+}
+
+.square {
+  background-color: #000;
+  height: 100%;
+  width: 12.5%;
+}
+
+.row:nth-child(even) .square:nth-child(even) {
+  background-color: #bd97ff;
+}
+
+.row:nth-child(odd) .square:nth-child(odd) {
+  background-color: #bd97ff;
+}
+
+.row:nth-child(even) .square:nth-child(odd) {
+  background-color: #9354ff;
+}
+
+.row:nth-child(odd) .square:nth-child(even) {
+  background-color: #9354ff;
+}

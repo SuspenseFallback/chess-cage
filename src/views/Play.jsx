@@ -711,6 +711,36 @@ const Play = () => {
         </p>
       </Dialog>
       <Toast ref={toast} />
+      <PlayPanel
+        start={start}
+        game_end={game_end}
+        startGame={startGame}
+        set_time={set_time}
+        time={custom_time}
+        custom_increment={custom_increment}
+        set_custom_increment={set_custom_increment}
+        mode={mode}
+        set_mode={set_new_mode}
+        send_message={send_message}
+        send_lobby_message={send_lobby_message}
+        chat={chat}
+        lobby_chat={lobby_chat}
+        game={game}
+        data={backup_data}
+        resign={resign}
+        takeback={takeback}
+        next_game={next_game}
+        draw_offer={draw}
+        history={history}
+        active_move={active_move}
+        first_move={first_move}
+        last_move={last_move}
+        prev_move={prev_move}
+        next_move={next_move}
+        preferred_color={preferred_color}
+        set_preferred_color={set_preferred_color}
+        share={share}
+      />
       <div className="game">
         <div className="player opp">
           <p className="opp name">
@@ -809,36 +839,6 @@ const Play = () => {
             onTimeout={timeOut}
           />
         </div>
-        <PlayPanel
-          start={start}
-          game_end={game_end}
-          startGame={startGame}
-          set_time={set_time}
-          time={custom_time}
-          custom_increment={custom_increment}
-          set_custom_increment={set_custom_increment}
-          mode={mode}
-          set_mode={set_new_mode}
-          send_message={send_message}
-          send_lobby_message={send_lobby_message}
-          chat={chat}
-          lobby_chat={lobby_chat}
-          game={game}
-          data={backup_data}
-          resign={resign}
-          takeback={takeback}
-          next_game={next_game}
-          draw_offer={draw}
-          history={history}
-          active_move={active_move}
-          first_move={first_move}
-          last_move={last_move}
-          prev_move={prev_move}
-          next_move={next_move}
-          preferred_color={preferred_color}
-          set_preferred_color={set_preferred_color}
-          share={share}
-        />
       </div>
     </div>
   );

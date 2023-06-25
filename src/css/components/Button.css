@@ -5,7 +5,7 @@
   border-radius: 5px;
   color: #fff;
   background-color: var(--primary-color);
-  font-family: "Nunito Sans";
+  font-family: "Avenir";
   width: 100%;
   cursor: pointer;
   border: 0;
@@ -31,7 +31,7 @@
   border-radius: 5px;
   border: none;
   color: #fff;
-  font-family: "Nunito Sans";
+  font-family: "Avenir";
   font-size: 16px;
   text-align: left;
   cursor: pointer;
@@ -49,7 +49,7 @@
   border-radius: 5px;
   border: none;
   color: #fff;
-  font-family: "Nunito Sans";
+  font-family: "Avenir";
   font-size: 16px;
   text-align: left;
   cursor: pointer;
@@ -68,7 +68,7 @@
   border-radius: 5px;
   border: none;
   color: #fff;
-  font-family: "Nunito Sans";
+  font-family: "Avenir";
   font-size: 16px;
   text-align: left;
   cursor: pointer;

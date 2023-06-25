@@ -7,10 +7,11 @@ import { TabPanel, TabView } from "primereact/tabview";
 
 import AISelector from "../components/PlayPanel/AISelector";
 import AI_LEVEL_ONE from "../ai/200.js";
+import AI_LEVEL_THREE from "../ai/600.js";
+import AI_LEVEL_TWO from "../ai/400.js";
 import Board from "../components/Board";
 import { Toast } from "primereact/toast";
 import piecemove from "../assets/sounds/piecemove.mp3";
-import { startAt } from "firebase/firestore";
 import useSound from "use-sound";
 
 const AI = () => {
@@ -43,10 +44,12 @@ const AI = () => {
   }
 
   useEffect(() => {
-    if (start) {
-      start_game_metadata();
+    if (color === "b") {
+      ai_move();
     }
   }, [ai]);
+
+  useEffect(() => {}, turn);
 
   let onDrop = (sourceSquare, targetSquare) => {
     let move = null;
@@ -116,8 +119,8 @@ const AI = () => {
         set_position(game.fen());
         set_history((h) => [...h, game.fen()]);
         set_active_move((m) => m + 1);
-        set_turn(!turn);
         playPieceMove();
+        set_turn(!turn);
       }
     });
   };
@@ -150,22 +153,19 @@ const AI = () => {
     playPieceMove();
   };
 
-  const start_game_metadata = () => {
+  const start_game = (ai_number) => {
+    let new_color = "w";
     if (preferred_color === "w") {
       set_color("w");
+      new_color = "w";
     } else if (preferred_color === "b") {
       set_color("b");
-      ai_move();
+      new_color = "b";
     } else {
       const randomIdx = Math.round(Math.random());
       set_color(randomIdx === 0 ? "w" : "b");
-      if (randomIdx === 1) {
-        ai_move();
-      }
+      new_color = "w";
     }
-  };
-
-  const start_game = (ai_number) => {
     set_start(true);
 
     if (ai_number === 1) {
@@ -174,7 +174,21 @@ const AI = () => {
         name: "Banana",
         rating: 200,
       });
-      set_ai(new AI_LEVEL_ONE(game));
+      set_ai(new AI_LEVEL_ONE(game, new_color));
+    } else if (ai_number === 2) {
+      console.log("level two");
+      set_ai_data({
+        name: "Apple",
+        rating: 250,
+      });
+      set_ai(new AI_LEVEL_TWO(game, new_color));
+    } else if (ai_number === 3) {
+      console.log("level three");
+      set_ai_data({
+        name: "Cantaloupe",
+        rating: 600,
+      });
+      set_ai(new AI_LEVEL_THREE(game, new_color));
     }
   };
 

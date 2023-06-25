@@ -6,6 +6,7 @@ import { Divider } from "primereact/divider";
 import apple from "../../assets/images/apple.png";
 import banana from "../../assets/images/banana.png";
 import { confirmPopup } from "primereact/confirmpopup";
+import guava from "../../assets/images/guava.png";
 import { validate } from "uuid";
 
 const AISelector = ({
@@ -28,7 +29,7 @@ const AISelector = ({
   const computers = [
     {
       name: "Banana",
-      rating: 200,
+      rating: 100,
       img: banana,
       index: 1,
       description:
@@ -39,7 +40,15 @@ const AISelector = ({
       rating: 400,
       img: apple,
       index: 2,
-      description: "An apple a day keeps the doctor away!",
+      description:
+        "Apple also knows the rules. However, he can spot a checkmate or capture easily! Can you beat this apple? An apple a day keeps the doctor away!",
+    },
+    {
+      name: "Guava",
+      rating: 600,
+      img: guava,
+      index: 3,
+      description: "Guava",
     },
   ];
 
