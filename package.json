@@ -37,7 +37,7 @@
     "reactive-localstorage": "^1.0.1",
     "roughjs": "^4.5.2",
     "socket.io-client": "^4.5.1",
-    "universal-cookie": "^4.0.4",
+    "universal-cookie": "^8.1.2",
     "use-sound": "^4.0.1",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.2"
