@@ -1,6 +1,5 @@
 import "../css/components/Input.css";
 
-import React from "react";
 
 const Input = ({ placeholder, value, set_value, className, icon, type }) => {
   return (

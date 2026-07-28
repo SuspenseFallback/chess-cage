@@ -1,12 +1,12 @@
-import * as Chess from "chess.js";
+import { Chess } from "chess.js";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Board from "../components/Board";
 
 const BoardEditor = () => {
   const [game, set_game] = useState(new Chess());
-  const [position, set_position] = useState("start");
+  const [position, set_position] = useState("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
   const [turn, set_turn] = useState("w");
 
   return (

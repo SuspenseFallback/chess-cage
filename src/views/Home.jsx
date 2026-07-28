@@ -1,6 +1,6 @@
 import "../css/views/Home.css";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import Animation from "../components/Animation";
 import { getSession } from "../supabase/supabase";

@@ -1,6 +1,5 @@
 import "../css/views/Verify.css";
 
-import React from "react";
 
 const Verify = () => {
   return (

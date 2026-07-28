@@ -1,5 +1,4 @@
 import Lesson from "../Lesson.jsx";
-import React from "react";
 
 const ThePawn = () => {
   const fens = [
@@ -23,7 +22,7 @@ const ThePawn = () => {
     "8/8/7p/2pP4/8/7P/8/8 w - - 0 1",
     "8/8/7p/2pP4/8/7P/8/8 w - - 0 1",
     "8/P7/8/8/8/8/7p/8 w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "The pawn is the weakest piece in chess. It can only move one square forward, as shown on the board.",
@@ -68,7 +67,7 @@ const TheKnight = () => {
     "8/8/8/8/4N3/8/8/8 w - - 0 1",
     "8/8/8/4b3/4N3/8/8/8 w - - 0 1",
     "r1bqkb1r/pppp1ppp/2n1pn2/1N6/3PPB2/8/PPP2PPP/R2QKBNR w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "The knight is the second minor piece, which can be compared to the bishop.",
@@ -97,7 +96,7 @@ const TheBishop = () => {
     "8/8/6p1/8/4B3/8/8/8 w - - 0 1",
     "8/8/8/8/3BB3/8/8/8 w - - 0 1",
     "8/8/3b4/4p3/2B1P1b1/4B3/8/8 w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "The bishop is a long-range, minor piece (it is small compared to the rest of the pieces.",
@@ -126,7 +125,7 @@ const TheRook = () => {
     "r6r/8/8/8/8/8/8/R6R w - - 0 1",
     "r3r1k1/ppp2ppp/8/8/8/8/PPP2PPP/R2R2K1 w - - 0 1",
     "3rr1k1/ppp2ppp/8/8/8/8/PPP2PPP/3RR1K1 w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "Rooks are long-range, major pieces (they are powerful).",
@@ -156,7 +155,7 @@ const TheQueen = () => {
     "rnbqkbnr/pppppppp/8/8/8/4PQ2/PPPP1PPP/RNB1KBNR w - - 0 1",
     "7r/2bbpnn1/2r2p2/2ppQp2/3pp3/8/8/8 w - - 0 1",
     "8/8/8/Q6r/6b1/8/8/8 w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "The queen is the most powerful piece in chess and a major piece.",
@@ -194,7 +193,7 @@ const TheKing = () => {
     "rnbqkbnr/pppppppp/8/8/2BPPB2/8/PPPQ1PPP/RN2K1NR w - - 0 1",
     "r2qk2r/pppp1ppp/2n2n2/1b2p3/1b1PP3/1B3N2/PPP2PPP/RNBQK2R w KQkq - 0 1",
     "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 w Qq - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "The king is one of the weakest, but the most important piece.",

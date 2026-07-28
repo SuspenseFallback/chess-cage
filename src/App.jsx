@@ -21,7 +21,6 @@ import NotFound from "./views/NotFound.jsx";
 import Play from "./views/Play";
 import Promotion from "./views/lessons/Promotion";
 import PuzzleTrainer from "./views/PuzzleTrainer.jsx";
-import React from "react";
 import SignUp from "./views/SignUp";
 import Stalemate from "./views/lessons/Stalemate";
 import ThePawnDrills from "./views/drills/Drills";

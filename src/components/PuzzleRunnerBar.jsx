@@ -1,4 +1,3 @@
-import React from "react";
 
 const PuzzleRunnerBar = ({ wrong_puzzles, correct_puzzles, active_puzzle }) => {
   return (

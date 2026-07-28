@@ -5,7 +5,7 @@ import React from "react";
 
 const MutualAgreement = () => {
   const [index, set_index] = React.useState(0);
-  const fens = ["start", "start", "start", "start"];
+  const fens = ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"];
   const lessons = [
     "Draw by mutual agreement is when the players feel like the game is draw, or when the players don't feel like playing, they agree to a draw.",
     "This also happens a lot in high-level games, as both players don't make many mistakes.",
