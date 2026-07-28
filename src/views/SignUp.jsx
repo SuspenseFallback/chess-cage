@@ -69,8 +69,36 @@ const SignUp = () => {
     }
   };
 
+  const isValidEmail = (val) => {
+    if (typeof val !== "string") return false;
+
+    const parts = val.split("@");
+    if (parts.length !== 2) return false;
+
+    const [localPart, domainPart] = parts;
+    if (!localPart || !domainPart) return false;
+
+    // Keep allowed characters close to the original intent: word chars, dot, hyphen.
+    if (!/^[A-Za-z0-9_.-]+$/.test(localPart)) return false;
+    if (!/^[A-Za-z0-9_.-]+$/.test(domainPart)) return false;
+
+    // No leading/trailing separators and no consecutive separators.
+    if (/^[.-]|[.-]$|[.-]{2,}/.test(localPart)) return false;
+    if (/^[.-]|[.-]$|[.-]{2,}/.test(domainPart)) return false;
+
+    const domainLabels = domainPart.split(".");
+    if (domainLabels.length < 2) return false;
+    if (domainLabels.some((label) => label.length === 0)) return false;
+
+    // Preserve original 2-3 length constraint for the final label.
+    const tld = domainLabels[domainLabels.length - 1];
+    if (tld.length < 2 || tld.length > 3) return false;
+
+    return true;
+  };
+
   const validate_email = (val) => {
-    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(val)) {
+    if (isValidEmail(val)) {
       set_rule_6("success");
     } else {
       set_rule_6("danger");
