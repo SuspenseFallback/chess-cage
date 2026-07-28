@@ -1,7 +1,7 @@
 import "../css/components/Board.css";
 
-import React, { useEffect, useState } from "react";
-import { lightOrDark, squares } from "../helpers/lightOrDark";
+import { useEffect, useState } from "react";
+import { lightOrDark } from "../helpers/lightOrDark";
 import { throw_err, throw_warning } from "../helpers/throw_err";
 
 // import rough from "roughjs/bundled/rough.cjs";
@@ -12,7 +12,7 @@ const Board = ({
   color = throw_err(400, "Color is required"),
   position = throw_warning(
     "Adding a position is advised so as not to cause problems.",
-    "start"
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
   ),
   isInteractive = true,
   darkSquareColor = "#9354ff",
@@ -35,33 +35,24 @@ const Board = ({
     shiftKey: false,
   });
   const [piece_square, set_piece_square] = useState("");
+  const [squareStyles, set_squareStyles] = useState({});
 
   useEffect(() => {
-    let newKeys = { ...keys };
-    document.querySelector(".board > div").addEventListener(
-      "keydown",
-      function (e) {
-        for (var key in keys) {
-          if (keys.hasOwnProperty(key)) {
-            newKeys[key] = e[key];
-            set_keys(newKeys);
-          }
-        }
-      },
-      []
-    );
-
-    document
-      .querySelector(".board > div")
-      .addEventListener("keyup", function (e) {
-        for (var key in keys) {
-          if (keys.hasOwnProperty(key)) {
-            newKeys[key] = e[key];
-            set_keys(newKeys);
-          }
-        }
+    const trackKeys = (e) => {
+      set_keys({
+        altKey: e.altKey,
+        ctrlKey: e.ctrlKey,
+        shiftKey: e.shiftKey,
       });
-  }, [keys]);
+    };
+
+    window.addEventListener("keydown", trackKeys);
+    window.addEventListener("keyup", trackKeys);
+    return () => {
+      window.removeEventListener("keydown", trackKeys);
+      window.removeEventListener("keyup", trackKeys);
+    };
+  }, []);
 
   useEffect(() => {
     clearSquares();
@@ -71,22 +62,15 @@ const Board = ({
         highlight_square(square);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [highlightedSquares]);
 
   const element_highlight = (square, idx) => {
     const index = lightOrDark(squareToNum(square)) === "light" ? 0 : 1;
-    if (
-      document.querySelector('[data-square="' + square + '"]').style
-        .backgroundColor === highlightColors[3][index]
-    ) {
-      document.querySelector(
-        '[data-square="' + square + '"]'
-      ).style.backgroundColor =
-        index === 0 ? lightSquareColor : darkSquareColor;
-    }
-    document.querySelector(
-      '[data-square="' + square + '"]'
-    ).style.backgroundColor = highlightColors[idx][index];
+    set_squareStyles((prev) => ({
+      ...prev,
+      [square]: { backgroundColor: highlightColors[idx][index] },
+    }));
   };
 
   const highlight_square = (square) => {
@@ -103,17 +87,20 @@ const Board = ({
     }
   };
 
-  const onSquareClick = (square) => {
+  const onSquareClick = ({ square }) => {
     clearSquares();
     if (isInteractive) {
-      if (game.get(square) == piece_square) {
+      if (game.get(square) === piece_square) {
         set_piece_square("");
       } else if (game.get(square) && !piece_square) {
         set_piece_square(square);
-        document.querySelector(
-          '[data-square="' + square + '"]'
-        ).style.backgroundColor =
-          highlightColors[4][game.get(square).color === "w" ? 0 : 1];
+        set_squareStyles((prev) => ({
+          ...prev,
+          [square]: {
+            backgroundColor:
+              highlightColors[4][game.get(square).color === "w" ? 0 : 1],
+          },
+        }));
       } else if (game.get(square) && piece_square) {
         set_piece_square(square);
       } else if (!game.get(square) && piece_square) {
@@ -126,26 +113,20 @@ const Board = ({
   };
 
   const clearSquares = () => {
-    squares.forEach((square) => {
-      const color =
-        lightOrDark(squareToNum(square)) === "light"
-          ? lightSquareColor
-          : darkSquareColor;
-      document.querySelector(
-        `[data-square='${square}']`
-      ).style.backgroundColor = color;
-    });
+    set_squareStyles({});
   };
 
-  let dropPiece = (sourceSquare, targetSquare) => {
+  let dropPiece = ({ sourceSquare, targetSquare }) => {
     if (!game) {
       console.log("no game");
-      return;
+      return false;
     }
     if (game.turn() === color) {
-      return onDrop(sourceSquare, targetSquare);
+      const result = onDrop(sourceSquare, targetSquare);
+      return result !== "snapback" && result !== false;
     } else {
-      return console.log("not your turn");
+      console.log("not your turn");
+      return false;
     }
   };
 
@@ -160,16 +141,20 @@ const Board = ({
   return (
     <div className="board">
       <Chessboard
-        position={position}
-        arePiecesDraggable={isInteractive}
-        onPieceDrop={dropPiece}
-        onSquareRightClick={highlight_square}
-        onSquareClick={(square) => onSquareClick(square)}
-        areArrowsAllowed={false}
-        customLightSquareStyle={lightSquareStyle}
-        customDarkSquareStyle={darkSquareStyle}
-        boardOrientation={color === "w" ? "white" : "black"}
-        showBoardNotation={false}
+        options={{
+          position,
+          allowDragging: isInteractive,
+          onPieceDrop: dropPiece,
+          onSquareRightClick: ({ square }) => highlight_square(square),
+          onSquareClick: onSquareClick,
+          allowDrawingArrows: false,
+          lightSquareStyle,
+          darkSquareStyle,
+          squareStyles,
+          boardOrientation: color === "w" ? "white" : "black",
+          showNotation: false,
+          showAnimations: false,
+        }}
       />
     </div>
   );

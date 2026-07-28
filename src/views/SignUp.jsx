@@ -70,7 +70,7 @@ const SignUp = () => {
   };
 
   const validate_email = (val) => {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(val)) {
+    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(val)) {
       set_rule_6("success");
     } else {
       set_rule_6("danger");

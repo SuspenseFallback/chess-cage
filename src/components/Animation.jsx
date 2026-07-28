@@ -1,4 +1,4 @@
-import * as Chess from "chess.js";
+import { Chess } from "chess.js";
 
 import React, { useEffect } from "react";
 
@@ -6,7 +6,7 @@ import Board from "./Board";
 
 const Animation = () => {
   const [game, set_game] = React.useState(new Chess());
-  const [position, set_position] = React.useState("start");
+  const [position, set_position] = React.useState("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
   const [king_moving, set_king_moving] = React.useState(false);
 
   const files = ["a", "b", "c", "d", "e", "f", "g", "h"];
@@ -96,7 +96,7 @@ const Animation = () => {
 
     if (game.moves().includes("Q" + queen_file + queen_rank)) {
       game.move("Q" + queen_file + queen_rank);
-      if (!game.in_stalemate()) {
+      if (!game.isStalemate()) {
         set_position(game.fen());
         return setTimeout(makeMove, 500);
       } else {
@@ -174,9 +174,9 @@ const Animation = () => {
         return checkMateWithQueen();
       }
 
-      if (game.game_over()) {
+      if (game.isGameOver()) {
         set_game(new Chess());
-        set_position("start");
+        set_position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
         return setTimeout(makeMove, 2000);
       }
 

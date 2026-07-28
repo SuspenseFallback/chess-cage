@@ -6,7 +6,7 @@ class AI_LEVEL_ONE {
   }
 
   makeMove = () => {
-    const moves = game.moves();
+    const moves = this.game.moves();
     let bestMove = null;
 
     moves.forEach((move) => {

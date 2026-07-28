@@ -1,6 +1,6 @@
 import "../css/views/puzzles/PuzzleTrainer.css";
 
-import * as Chess from "chess.js";
+import { Chess } from "chess.js";
 
 import React, { useEffect, useRef, useState } from "react";
 
@@ -18,7 +18,7 @@ const PuzzleTrainer = () => {
   const [game, set_game] = useState(new Chess());
   const [start, set_start] = useState(false);
   const [puzzle, set_puzzle] = useState(false);
-  const [position, set_position] = useState("start");
+  const [position, set_position] = useState("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
   const [solution, set_solution] = useState([]);
   const [puzzle_end, set_puzzle_end] = useState(false);
   const [wrong, set_wrong] = useState(false);
@@ -62,38 +62,38 @@ const PuzzleTrainer = () => {
     document.querySelector(
       '[data-square="' + targetSquare + '"]'
     ).style.backgroundColor =
-      game.square_color(targetSquare) === "light"
+      game.squareColor(targetSquare) === "light"
         ? "lightgreen"
         : "springgreen";
     setTimeout(() => {
       document.querySelector(
         '[data-square="' + targetSquare + '"]'
       ).style.backgroundColor =
-        game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
+        game.squareColor(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
       setTimeout(() => {
         document.querySelector(
           '[data-square="' + targetSquare + '"]'
         ).style.backgroundColor =
-          game.square_color(targetSquare) === "light"
+          game.squareColor(targetSquare) === "light"
             ? "lightgreen"
             : "springgreen";
         setTimeout(() => {
           document.querySelector(
             '[data-square="' + targetSquare + '"]'
           ).style.backgroundColor =
-            game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
+            game.squareColor(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
           setTimeout(() => {
             document.querySelector(
               '[data-square="' + targetSquare + '"]'
             ).style.backgroundColor =
-              game.square_color(targetSquare) === "light"
+              game.squareColor(targetSquare) === "light"
                 ? "lightgreen"
                 : "springgreen";
             setTimeout(() => {
               document.querySelector(
                 '[data-square="' + targetSquare + '"]'
               ).style.backgroundColor =
-                game.square_color(targetSquare) === "light"
+                game.squareColor(targetSquare) === "light"
                   ? "#ab7aff"
                   : "#9354ff";
             }, 100);
@@ -107,22 +107,22 @@ const PuzzleTrainer = () => {
     document.querySelector(
       '[data-square="' + targetSquare + '"]'
     ).style.backgroundColor =
-      game.square_color(targetSquare) === "light" ? "salmon" : "red";
+      game.squareColor(targetSquare) === "light" ? "salmon" : "red";
     setTimeout(() => {
       document.querySelector(
         '[data-square="' + targetSquare + '"]'
       ).style.backgroundColor =
-        game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
+        game.squareColor(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
       setTimeout(() => {
         document.querySelector(
           '[data-square="' + targetSquare + '"]'
         ).style.backgroundColor =
-          game.square_color(targetSquare) === "light" ? "salmon" : "red";
+          game.squareColor(targetSquare) === "light" ? "salmon" : "red";
         setTimeout(() => {
           document.querySelector(
             '[data-square="' + targetSquare + '"]'
           ).style.backgroundColor =
-            game.square_color(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
+            game.squareColor(targetSquare) === "light" ? "#ab7aff" : "#9354ff";
         }, 100);
       }, 100);
     }, 100);
@@ -131,11 +131,15 @@ const PuzzleTrainer = () => {
   let onDrop = (sourceSquare, targetSquare) => {
     let move = null;
     safeGameMutate((game) => {
-      move = game.move({
-        from: sourceSquare,
-        to: targetSquare,
-        promotion: "q", // always promote to a queen for example simplicity
-      });
+      try {
+        move = game.move({
+          from: sourceSquare,
+          to: targetSquare,
+          promotion: "q", // always promote to a queen for example simplicity
+        });
+      } catch {
+        move = null;
+      }
     });
     if (move === null) {
       console.log("Illegal move");

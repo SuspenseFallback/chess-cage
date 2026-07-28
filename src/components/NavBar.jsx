@@ -1,7 +1,7 @@
 import "../css/components/Navbar.css";
 
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { faBars, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 import { Avatar } from "primereact/avatar";

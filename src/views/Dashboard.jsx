@@ -15,7 +15,6 @@ import {
 
 import { Avatar } from "primereact/avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import SpinnerPage from "../components/SpinnerPage";
 import { getUserData } from "../supabase/supabase";
 import { useEffect } from "react";

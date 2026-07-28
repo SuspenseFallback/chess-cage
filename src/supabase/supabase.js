@@ -1,8 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 
 export const supabase = createClient(
-  "https://ohupiaajynvuspdmbhxo.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9odXBpYWFqeW52dXNwZG1iaHhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzM2MTk5NTQsImV4cCI6MTk4OTE5NTk1NH0.TCDZLa30k3gt0fS3E1qphqggHZ6Vva5lci-YLyRp4oo"
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
 );
 
 export function signUpWithEmail(username, email, password, callback) {
@@ -14,7 +14,7 @@ export function signUpWithEmail(username, email, password, callback) {
         data: {
           username: username,
         },
-        emailRedirectTo: "http://localhost:3000/login",
+        emailRedirectTo: `${window.location.origin}/login`,
       },
     })
     .then(({ data, error }) => {

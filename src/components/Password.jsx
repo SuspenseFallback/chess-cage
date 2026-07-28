@@ -1,6 +1,5 @@
 import "../css/components/Input.css";
 
-import React from "react";
 
 const Password = ({ placeholder, value, set_value, className, icon }) => {
   return (

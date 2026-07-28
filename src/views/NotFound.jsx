@@ -1,6 +1,6 @@
 import "../css/views/NotFound.css";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import Animation from "../components/Animation";
 import { Button } from "primereact/button";

@@ -1,6 +1,5 @@
 import "../css/views/Lessons.css";
 
-import React from "react";
 import wpawn from "../assets/images/pieces/pawn.png";
 
 const Lessons = () => {

@@ -6,7 +6,7 @@ import React from "react";
 const Material = () => {
   const [index, set_index] = React.useState(0);
   const fens = [
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
     "8/8/8/8/8/8/4P3/8 w - - 0 1",
     "8/3ppp2/8/8/8/8/8/4N3 w - - 0 1",
     "4b3/8/8/8/8/8/8/4N3 w - - 0 1",
@@ -17,7 +17,7 @@ const Material = () => {
     "8/3bbn2/8/8/8/8/8/4Q3 w - - 0 1",
     "4r3/5b2/8/8/8/8/8/4Q3 w - - 0 1",
     "4k3/8/8/8/8/8/8/4K3 w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "Material is simply how much a piece is worth, measured in points.",

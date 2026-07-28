@@ -8,7 +8,7 @@ export default function useQuery() {
 }
 
 export function getMode(query) {
-  let mode = query.get("time").split("");
+  let mode = (query.get("time") || "blitz").split("");
   mode[0] = mode[0].toUpperCase();
   return mode.join("");
 }

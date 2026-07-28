@@ -1,6 +1,6 @@
 import "../css/views/Play.css";
 
-import * as Chess from "chess.js";
+import { Chess } from "chess.js";
 
 import React, { useEffect, useRef, useState } from "react";
 import { UseAuth, register_game } from "../firebase/firebase";
@@ -33,7 +33,7 @@ const Play = () => {
   const query = useQuery();
 
   const [game, set_game] = React.useState(new Chess());
-  const [position, set_position] = useState("start");
+  const [position, set_position] = useState("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
   const [start, set_start] = useState(false);
   const [game_end, set_game_end] = useState(false);
   const [data, set_data] = useState(false);
@@ -457,11 +457,15 @@ const Play = () => {
     }
     let move = null;
     safeGameMutate((game) => {
-      move = game.move({
-        from: sourceSquare,
-        to: targetSquare,
-        promotion: "q", // always promote to a queen for example simplicity
-      });
+      try {
+        move = game.move({
+          from: sourceSquare,
+          to: targetSquare,
+          promotion: "q", // always promote to a queen for example simplicity
+        });
+      } catch {
+        move = null;
+      }
     });
 
     if (move === null) {
@@ -491,15 +495,15 @@ const Play = () => {
     set_active_move((m) => m + 1);
     set_turn(!turn);
     playPieceMove();
-    if (game.game_over()) {
+    if (game.isGameOver()) {
       set_game_result(backup_data.color === "w" ? "1-0" : "0-1");
-      if (game.in_checkmate()) {
+      if (game.isCheckmate()) {
         set_game_reason("by checkmate");
-      } else if (game.in_stalemate()) {
+      } else if (game.isStalemate()) {
         set_game_reason("by stalemate");
-      } else if (game.in_threefold_repetition()) {
+      } else if (game.isThreefoldRepetition()) {
         set_game_reason("by threefold");
-      } else if (game.insufficient_material()) {
+      } else if (game.isInsufficientMaterial()) {
         set_game_reason("by insufficient");
       }
     }
@@ -509,11 +513,15 @@ const Play = () => {
   let onOpponentMove = (sourceSquare, targetSquare) => {
     let move = null;
     safeGameMutate((game) => {
-      move = game.move({
-        from: sourceSquare,
-        to: targetSquare,
-        promotion: "q", // always promote to a queen for example simplicity
-      });
+      try {
+        move = game.move({
+          from: sourceSquare,
+          to: targetSquare,
+          promotion: "q", // always promote to a queen for example simplicity
+        });
+      } catch {
+        move = null;
+      }
     });
 
     if (move === null) {
@@ -530,15 +538,15 @@ const Play = () => {
     set_active_move((m) => m + 1);
     set_turn(!turn);
     playPieceMove();
-    if (game.game_over()) {
+    if (game.isGameOver()) {
       set_game_result(backup_data.color === "w" ? "1-0" : "0-1");
-      if (game.in_checkmate()) {
+      if (game.isCheckmate()) {
         set_game_reason("by checkmate");
-      } else if (game.in_stalemate()) {
+      } else if (game.isStalemate()) {
         set_game_reason("by stalemate");
-      } else if (game.in_threefold_repetition()) {
+      } else if (game.isThreefoldRepetition()) {
         set_game_reason("by threefold");
-      } else if (game.insufficient_material()) {
+      } else if (game.isInsufficientMaterial()) {
         set_game_reason("by insufficient");
       }
     }
@@ -646,7 +654,7 @@ const Play = () => {
     // set_data(false);
     // set_start(false);
     // set_game_end(false);
-    // set_position("start");
+    // set_position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     // safeGameMutate((game) => {
     //   game.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     // });

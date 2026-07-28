@@ -10,7 +10,7 @@ const DrawByRepetition = () => {
     "4k3/4P3/4K3/8/8/8/8/8 w - - 0 1",
     "rnbkqbnr/ppp2ppp/8/8/8/3Q4/PPP2PPP/RNBK1BNR w - - 0 1",
     "rnb1k1nr/ppp2p1p/6p1/q7/1b6/1P3NP1/PBPPPPBP/RN1QK2R w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "Draw by repetition is when the same position is achieved three times (doesnt have to be in a row).",

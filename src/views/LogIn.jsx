@@ -34,7 +34,7 @@ const LogIn = () => {
         <div className="form flex flex-column">
           <h2 className="header-2">Log in</h2>
           <p>
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link className="emp no-decoration" to="/signup">
               Sign up.
             </Link>{" "}

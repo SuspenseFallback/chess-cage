@@ -14,7 +14,7 @@ const Promotion = () => {
     "2NBRQ2/8/8/8/8/8/8/8 w - - 0 1",
     "2QQQQ2/8/8/8/8/8/8/8 w - - 0 1",
     "8/P7/1P6/2P5/5p2/6p1/7p/8 w - - 0 1",
-    "start",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   ];
   const lessons = [
     "In the lesson about pawns, the question 'What happens when a pawn reaches the edge of the board?' was left unanswered.",
