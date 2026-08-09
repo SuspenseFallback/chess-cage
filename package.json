@@ -23,7 +23,7 @@
     "react-colorful": "^5.8.0",
     "react-dom": "^19.2.8",
     "react-gravatar": "^2.6.3",
-    "react-router-dom": "^7.18.1",
+    "react-router-dom": "^7.18.2",
     "react-transition-group": "^4.4.5",
     "roughjs": "^4.6.6",
     "socket.io-client": "^4.8.3",
