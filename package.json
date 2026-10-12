@@ -11,7 +11,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.5.0",
     "@supabase/supabase-js": "^2.110.9",
-    "axios": "^1.18.1",
+    "axios": "^1.20.0",
     "chess.js": "^1.4.0",
     "firebase": "^12.16.0",
     "formik": "^2.4.9",
